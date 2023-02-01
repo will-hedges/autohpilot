@@ -1,3 +1,6 @@
+# autohpilot
+React app for streamlining psychiatric history of present illness (HPI) notes, without personal health information (PHI)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
