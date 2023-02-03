@@ -1,31 +1,30 @@
 import { useEffect, useState } from "react";
 
-export const FamilySuicideHistory = () => {
-  const [familySuicideHistory, setFamilySuicideHistory] = useState();
-  const [familySuicideHistoryNotes, setFamilySuicideHistoryNotes] =
-    useState("");
+export const FamilySuicide = () => {
+  const [familySuicide, setFamilySuicide] = useState();
+  const [familySuicideNotes, setFamilySuicideNotes] = useState("");
 
   const handleFamilySuicideBool = (evt) => {
     let boolState = evt.target.value === "true" ? true : false;
-    setFamilySuicideHistory(boolState);
+    setFamilySuicide(boolState);
   };
 
   useEffect(() => {
-    if (!familySuicideHistory) {
-      setFamilySuicideHistoryNotes("");
+    if (!familySuicide) {
+      setFamilySuicideNotes("");
     }
-  }, [familySuicideHistory]);
+  }, [familySuicide]);
 
   return (
     <div className="form-group">
-      <label htmlFor="familySuicideHistory">Family history of suicide:</label>
+      <label htmlFor="familySuicide">Family history of suicide:</label>
 
       <input
         type="radio"
         value={true}
         id="familySuicideYes"
         onChange={handleFamilySuicideBool}
-        name="familySuicideHistory"
+        name="familySuicide"
       />
       <label htmlFor="familySuicideYes">Yes</label>
 
@@ -34,19 +33,19 @@ export const FamilySuicideHistory = () => {
         value={false}
         id="familySuicideNo"
         onChange={handleFamilySuicideBool}
-        name="familySuicideHistory"
+        name="familySuicide"
       />
       <label htmlFor="familySuicideNo">No</label>
 
-      {familySuicideHistory ? (
+      {familySuicide ? (
         <div className="form-group notes-field">
-          <label htmlFor="familySuicideHistoryNotes">Notes:</label>
+          <label htmlFor="familySuicideNotes">Notes:</label>
           <input
             type="text"
-            value={familySuicideHistoryNotes}
-            id="familySuicideHistoryNotes"
+            value={familySuicideNotes}
+            id="familySuicideNotes"
             onChange={(evt) => {
-              setFamilySuicideHistoryNotes(evt.target.value);
+              setFamilySuicideNotes(evt.target.value);
             }}
           />
         </div>

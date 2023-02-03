@@ -5,7 +5,8 @@ import { ModifyingFactors } from "./noteFields/ModifyingFactors";
 import { Occupation } from "./noteFields/Occupation";
 import { Religious } from "./noteFields/Religious";
 import { LegalIssues } from "./noteFields/LegalIssues";
-import { FamilySuicideHistory } from "./noteFields/FamilySuicideHistory";
+import { FamilySuicide } from "./noteFields/FamilySuicide";
+import { ChildhoodTrauma } from "./noteFields/ChildhoodTrauma";
 
 export const NoteForm = () => {
   return (
@@ -19,7 +20,8 @@ export const NoteForm = () => {
         {Occupation()}
         {Religious()}
         {LegalIssues()}
-        {FamilySuicideHistory()}
+        {FamilySuicide()}
+        {ChildhoodTrauma()}
       </fieldset>
     </div>
   );
