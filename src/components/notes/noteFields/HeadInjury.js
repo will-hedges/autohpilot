@@ -10,8 +10,12 @@ export const HeadInjury = () => {
   };
 
   useEffect(() => {
-    if (!headInjury) {
+    if (typeof headInjury === "undefined") {
       setHeadInjuryNotes("");
+    } else if (!headInjury) {
+      setHeadInjuryNotes(
+        "Denies any history of seizures, serious head injuries/TBIs."
+      );
     }
   }, [headInjury]);
 
