@@ -17,7 +17,7 @@ export const LegalIssues = () => {
 
   return (
     <div className="form-group">
-      <label htmlFor="legalIssues">History of legal issues:</label>
+      <label htmlFor="legalIssues">Legal issues:</label>
 
       <input
         type="radio"

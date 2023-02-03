@@ -11,7 +11,7 @@ export const Religious = () => {
   return (
     <div className="form-group">
       <form>
-        <label htmlFor="religious">Religious beliefs:</label>
+        <label htmlFor="religious">Religious/spiritual beliefs:</label>
 
         <input
           type="radio"
