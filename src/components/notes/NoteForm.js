@@ -1,6 +1,7 @@
 import { VisitDate } from "./noteFields/VisitDate";
 import { PatientAge } from "./noteFields/PatientAge";
 import { PatientGender } from "./noteFields/PatientGender";
+import { ModifyingFactors } from "./noteFields/ModifyingFactors";
 
 export const NoteForm = () => {
   return (
@@ -10,6 +11,7 @@ export const NoteForm = () => {
         {VisitDate()}
         {PatientAge()}
         {PatientGender()}
+        {ModifyingFactors()}
       </fieldset>
     </form>
   );
