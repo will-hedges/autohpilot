@@ -5,10 +5,11 @@ import { ModifyingFactors } from "./noteFields/ModifyingFactors";
 import { Occupation } from "./noteFields/Occupation";
 import { Religious } from "./noteFields/Religious";
 import { LegalIssues } from "./noteFields/LegalIssues";
+import { FamilySuicideHistory } from "./noteFields/FamilySuicideHistory";
 
 export const NoteForm = () => {
   return (
-    <form className="note__form">
+    <div className="note__form">
       <h2 className="note__header">New Note</h2>
       <fieldset>
         {VisitDate()}
@@ -18,7 +19,8 @@ export const NoteForm = () => {
         {Occupation()}
         {Religious()}
         {LegalIssues()}
+        {FamilySuicideHistory()}
       </fieldset>
-    </form>
+    </div>
   );
 };
