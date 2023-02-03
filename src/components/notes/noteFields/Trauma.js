@@ -17,7 +17,7 @@ export const Trauma = () => {
 
   return (
     <div className="form-group">
-      <label htmlFor="trauma">History of childhood trauma:</label>
+      <label htmlFor="trauma">History of trauma:</label>
 
       <input
         type="radio"
