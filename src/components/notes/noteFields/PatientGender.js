@@ -3,7 +3,7 @@ import { useState } from "react";
 export const PatientGender = () => {
   const [patientGender, setPatientGender] = useState("");
 
-  const handleChange = (evt) => {
+  const handleGenderChange = (evt) => {
     setPatientGender(evt.target.value);
   };
 
@@ -14,7 +14,7 @@ export const PatientGender = () => {
         type="radio"
         value="male"
         id="male"
-        onChange={handleChange}
+        onChange={handleGenderChange}
         name="gender"
       />
       <label htmlFor="male">Male</label>
@@ -23,7 +23,7 @@ export const PatientGender = () => {
         type="radio"
         value="female"
         id="female"
-        onChange={handleChange}
+        onChange={handleGenderChange}
         name="gender"
       />
       <label htmlFor="female">Female</label>
