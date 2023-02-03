@@ -7,6 +7,7 @@ import { Religious } from "./noteFields/Religious";
 import { LegalIssues } from "./noteFields/LegalIssues";
 import { FamilySuicide } from "./noteFields/FamilySuicide";
 import { ChildhoodTrauma } from "./noteFields/ChildhoodTrauma";
+import { HeadInjury } from "./noteFields/HeadInjury";
 
 export const NoteForm = () => {
   return (
@@ -22,6 +23,7 @@ export const NoteForm = () => {
         {LegalIssues()}
         {FamilySuicide()}
         {ChildhoodTrauma()}
+        {HeadInjury()}
       </fieldset>
     </div>
   );
