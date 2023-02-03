@@ -4,6 +4,7 @@ import { PatientGender } from "./noteFields/PatientGender";
 import { ModifyingFactors } from "./noteFields/ModifyingFactors";
 import { Occupation } from "./noteFields/Occupation";
 import { Religious } from "./noteFields/Religious";
+import { LegalIssues } from "./noteFields/LegalIssues";
 
 export const NoteForm = () => {
   return (
@@ -16,6 +17,7 @@ export const NoteForm = () => {
         {ModifyingFactors()}
         {Occupation()}
         {Religious()}
+        {LegalIssues()}
       </fieldset>
     </form>
   );

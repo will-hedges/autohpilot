@@ -9,26 +9,28 @@ export const Religious = () => {
   };
 
   return (
-    <form>
-      <label htmlFor="religious">Religious beliefs:</label>
+    <div className="form-group">
+      <form>
+        <label htmlFor="religious">Religious beliefs:</label>
 
-      <input
-        type="radio"
-        value={true}
-        id="religiousYes"
-        onChange={handleReligiousBool}
-        name="religious"
-      />
-      <label htmlFor="religiousYes">Yes</label>
+        <input
+          type="radio"
+          value={true}
+          id="religiousYes"
+          onChange={handleReligiousBool}
+          name="religious"
+        />
+        <label htmlFor="religiousYes">Yes</label>
 
-      <input
-        type="radio"
-        value={false}
-        id="religiousNo"
-        onChange={handleReligiousBool}
-        name="religious"
-      />
-      <label htmlFor="religiousNo">No</label>
-    </form>
+        <input
+          type="radio"
+          value={false}
+          id="religiousNo"
+          onChange={handleReligiousBool}
+          name="religious"
+        />
+        <label htmlFor="religiousNo">No</label>
+      </form>
+    </div>
   );
 };
