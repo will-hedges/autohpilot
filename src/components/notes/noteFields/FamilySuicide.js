@@ -10,8 +10,10 @@ export const FamilySuicide = () => {
   };
 
   useEffect(() => {
-    if (!familySuicide) {
+    if (typeof familySuicide === "undefined") {
       setFamilySuicideNotes("");
+    } else if (!familySuicide) {
+      setFamilySuicideNotes("Denies any family history of suicide.");
     }
   }, [familySuicide]);
 

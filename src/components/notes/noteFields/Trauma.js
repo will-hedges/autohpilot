@@ -10,8 +10,12 @@ export const Trauma = () => {
   };
 
   useEffect(() => {
-    if (!trauma) {
+    if (typeof trauma === "undefined") {
       setTraumaNotes("");
+    } else if (!trauma) {
+      setTraumaNotes(
+        "Denies any hx of physical, sexual, and/or emotional/psychological abuse."
+      );
     }
   }, [trauma]);
 
