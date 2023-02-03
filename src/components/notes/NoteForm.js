@@ -9,6 +9,7 @@ import { LegalIssues } from "./noteFields/LegalIssues";
 import { FamilySuicide } from "./noteFields/FamilySuicide";
 import { Trauma } from "./noteFields/Trauma";
 import { HeadInjury } from "./noteFields/HeadInjury";
+import { FinancialIssues } from "./noteFields/FinancialIssues";
 
 export const NoteForm = () => {
   return (
@@ -22,6 +23,7 @@ export const NoteForm = () => {
         {ModifyingFactors()}
         {Occupation()}
         {Religious()}
+        {FinancialIssues()}
         {LegalIssues()}
         {FamilySuicide()}
         {Trauma()}
