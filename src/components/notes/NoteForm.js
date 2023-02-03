@@ -16,18 +16,18 @@ export const NoteForm = () => {
     <div className="note__form">
       <h2 className="note__header">New Note</h2>
       <fieldset>
-        {VisitDateAndTime()}
-        {PatientAge()}
-        {PatientGender()}
-        {ChiefComplaint()}
-        {ModifyingFactors()}
-        {Occupation()}
-        {Religious()}
-        {FinancialIssues()}
-        {LegalIssues()}
-        {FamilySuicide()}
-        {Trauma()}
-        {HeadInjury()}
+        <VisitDateAndTime />
+        <PatientAge />
+        <PatientGender />
+        <ChiefComplaint />
+        <ModifyingFactors />
+        <Occupation />
+        <Religious />
+        <FinancialIssues />
+        <LegalIssues />
+        <FamilySuicide />
+        <Trauma />
+        <HeadInjury />
       </fieldset>
     </div>
   );
