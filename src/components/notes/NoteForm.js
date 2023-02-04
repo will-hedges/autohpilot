@@ -11,6 +11,7 @@ import { Trauma } from "./noteFields/Trauma";
 import { HeadInjury } from "./noteFields/HeadInjury";
 import { FinancialIssues } from "./noteFields/FinancialIssues";
 import { VisitType } from "./noteFields/VisitType";
+import { VisitLocationDropdown } from "./noteFields/VisitLocationDropdown";
 
 export const NoteForm = () => {
   return (
@@ -19,6 +20,7 @@ export const NoteForm = () => {
       <fieldset>
         <VisitDateAndTime />
         <VisitType />
+        <VisitLocationDropdown />
         <PatientAge />
         <PatientGender />
         <ChiefComplaint />
