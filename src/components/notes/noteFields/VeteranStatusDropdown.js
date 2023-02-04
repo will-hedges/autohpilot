@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-export const MaritalStatusDropdown = () => {
+export const VeteranStatusDropdown = () => {
   const [statuses, setStatuses] = useState([]);
   const [chosenStatus, setChosenStatus] = useState("");
 
   useEffect(() => {
-    fetch(`${API}/maritalStatuses`)
+    fetch(`${API}/veteranStatuses`)
       .then((res) => res.json())
       .then((statusArray) => {
         setStatuses(statusArray);
@@ -16,14 +16,14 @@ export const MaritalStatusDropdown = () => {
 
   return (
     <div className="form-group">
-      <label htmlFor="marital-status">Marital Status:</label>
+      <label htmlFor="veteran-status">Veteran Status:</label>
       <select
-        name="marital-status"
+        name="veteran-status"
         value={chosenStatus}
         onChange={(evt) => setChosenStatus(parseInt(evt.target.value))}
       >
         <option value="" className="form-option">
-          Select a marital status
+          Select a veteran status
         </option>
         {statuses.map((status) => {
           return (

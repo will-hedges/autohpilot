@@ -25,7 +25,7 @@ export const EducationLevelDropdown = () => {
         onChange={(evt) => setEducationLevel(parseInt(evt.target.value))}
       >
         <option value="" className="form-option">
-          Select a level
+          Select an education level
         </option>
         {levels.map((level) => {
           return (
