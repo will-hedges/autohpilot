@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-const API = "http://levelalhost:8088";
+const API = "http://localhost:8088";
 
 export const EducationLevelDropdown = () => {
   const [levels, setLevels] = useState([]);
   const [educationLevel, setEducationLevel] = useState("");
 
   useEffect(() => {
-    fetch(`${API}/levels`)
+    fetch(`${API}/educationLevels`)
       .then((res) => res.json())
       .then((levelArray) => {
         setLevels(levelArray);
