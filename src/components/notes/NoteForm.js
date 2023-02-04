@@ -10,6 +10,7 @@ import { FamilySuicide } from "./noteFields/FamilySuicide";
 import { Trauma } from "./noteFields/Trauma";
 import { HeadInjury } from "./noteFields/HeadInjury";
 import { FinancialIssues } from "./noteFields/FinancialIssues";
+import { VisitType } from "./noteFields/VisitType";
 
 export const NoteForm = () => {
   return (
@@ -17,6 +18,7 @@ export const NoteForm = () => {
       <h2 className="note__header">New Note</h2>
       <fieldset>
         <VisitDateAndTime />
+        <VisitType />
         <PatientAge />
         <PatientGender />
         <ChiefComplaint />
