@@ -13,6 +13,7 @@ import { FinancialIssues } from "./noteFields/FinancialIssues";
 import { VisitType } from "./noteFields/VisitType";
 import { VisitLocationDropdown } from "./noteFields/VisitLocationDropdown";
 import { MaritalStatusDropdown } from "./noteFields/MaritalStatusDropdown";
+import { EducationLevelDropdown } from "./noteFields/EducationLevelDropdown";
 
 export const NoteForm = () => {
   return (
@@ -26,6 +27,7 @@ export const NoteForm = () => {
         <PatientGender />
         <ChiefComplaint />
         <MaritalStatusDropdown />
+        <EducationLevelDropdown />
         <ModifyingFactors />
         <Occupation />
         <Religious />
