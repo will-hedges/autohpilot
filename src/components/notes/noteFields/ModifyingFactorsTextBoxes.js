@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const ModifyingFactors = () => {
+export const ModifyingFactorsTextBoxes = () => {
   const [aggravatingFactors, setAggravatingFactors] = useState("");
   const [alleviatingFactors, setAlleviatingFactors] = useState("");
 

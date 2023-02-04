@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const PatientAge = () => {
+export const PatientAgeField = () => {
   const [patientAge, setPatientAge] = useState();
   return (
     <div className="form-group">

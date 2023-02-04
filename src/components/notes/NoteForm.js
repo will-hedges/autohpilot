@@ -1,16 +1,16 @@
-import { VisitDateAndTime } from "./noteFields/VisitDateAndTime";
-import { PatientAge } from "./noteFields/PatientAge";
-import { PatientGender } from "./noteFields/PatientGender";
-import { ChiefComplaint } from "./noteFields/ChiefComplaint";
-import { ModifyingFactors } from "./noteFields/ModifyingFactors";
-import { Occupation } from "./noteFields/Occupation";
-import { Religious } from "./noteFields/Religious";
-import { LegalIssues } from "./noteFields/LegalIssues";
-import { FamilySuicide } from "./noteFields/FamilySuicide";
-import { Trauma } from "./noteFields/Trauma";
-import { HeadInjury } from "./noteFields/HeadInjury";
-import { FinancialIssues } from "./noteFields/FinancialIssues";
-import { VisitType } from "./noteFields/VisitType";
+import { VisitDateAndTimeSelectors } from "./noteFields/VisitDateAndTimeSelectors";
+import { PatientAgeField } from "./noteFields/PatientAgeField";
+import { PatientGenderButtons } from "./noteFields/PatientGenderButtons";
+import { ChiefComplaintTextBox } from "./noteFields/ChiefComplaintTextBox";
+import { ModifyingFactorsTextBoxes } from "./noteFields/ModifyingFactorsTextBoxes";
+import { OccupationTextBox } from "./noteFields/OccupationTextBox";
+import { ReligiousButtons } from "./noteFields/ReligiousButtons";
+import { LegalIssuesButtons } from "./noteFields/LegalIssuesButtons";
+import { FamilySuicideButtons } from "./noteFields/FamilySuicideButtons";
+import { TraumaHistoryButtons } from "./noteFields/TraumaHistoryButtons";
+import { HeadInjuryDropdown } from "./noteFields/HeadInjuryDropdown";
+import { FinancialIssuesButtons } from "./noteFields/FinancialIssuesButtons";
+import { VisitTypeButtons } from "./noteFields/VisitTypeButtons";
 import { VisitLocationDropdown } from "./noteFields/VisitLocationDropdown";
 import { MaritalStatusDropdown } from "./noteFields/MaritalStatusDropdown";
 import { EducationLevelDropdown } from "./noteFields/EducationLevelDropdown";
@@ -22,24 +22,24 @@ export const NoteForm = () => {
     <div className="note__form">
       <h2 className="note__header">New Note</h2>
       <fieldset>
-        <VisitDateAndTime />
-        <VisitType />
+        <VisitDateAndTimeSelectors />
+        <VisitTypeButtons />
         <VisitLocationDropdown />
-        <PatientAge />
-        <PatientGender />
-        <ChiefComplaint />
+        <PatientAgeField />
+        <PatientGenderButtons />
+        <ChiefComplaintTextBox />
         <MaritalStatusDropdown />
         <EducationLevelDropdown />
-        <ModifyingFactors />
-        <Occupation />
-        <Religious />
-        <FinancialIssues />
+        <ModifyingFactorsTextBoxes />
+        <OccupationTextBox />
+        <ReligiousButtons />
+        <FinancialIssuesButtons />
         <HousingStatusDropdown />
-        <LegalIssues />
+        <LegalIssuesButtons />
         <VeteranStatusDropdown />
-        <FamilySuicide />
-        <Trauma />
-        <HeadInjury />
+        <FamilySuicideButtons />
+        <TraumaHistoryButtons />
+        <HeadInjuryDropdown />
       </fieldset>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const VisitType = () => {
+export const VisitTypeButtons = () => {
   const [visitType, setVisitType] = useState("");
 
   const handleVisitTypeChange = (evt) => {

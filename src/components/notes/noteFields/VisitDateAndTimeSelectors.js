@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const VisitDateAndTime = () => {
+export const VisitDateAndTimeSelectors = () => {
   const [visitDate, setVisitDate] = useState();
   const [visitTime, setVisitTime] = useState();
 

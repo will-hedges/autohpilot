@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const HeadInjury = () => {
+export const HeadInjuryDropdown = () => {
   const [headInjury, setHeadInjury] = useState();
   const [headInjuryNotes, setHeadInjuryNotes] = useState("");
 

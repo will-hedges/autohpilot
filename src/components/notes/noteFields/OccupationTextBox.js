@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Occupation = () => {
+export const OccupationTextBox = () => {
   const [occupation, setOccupation] = useState("");
   return (
     <div className="form-group">

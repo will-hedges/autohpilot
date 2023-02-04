@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const FinancialIssues = () => {
+export const FinancialIssuesButtons = () => {
   const [financialIssues, setFinancialIssues] = useState();
   const [financialIssuesNotes, setFinancialIssuesNotes] = useState("");
 

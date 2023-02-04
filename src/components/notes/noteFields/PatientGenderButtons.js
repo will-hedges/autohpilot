@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const PatientGender = () => {
+export const PatientGenderButtons = () => {
   const [patientGender, setPatientGender] = useState("");
 
   const handleGenderChange = (evt) => {

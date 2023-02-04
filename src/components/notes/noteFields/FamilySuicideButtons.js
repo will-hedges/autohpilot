@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const FamilySuicide = () => {
+export const FamilySuicideButtons = () => {
   const [familySuicide, setFamilySuicide] = useState();
   const [familySuicideNotes, setFamilySuicideNotes] = useState("");
 
