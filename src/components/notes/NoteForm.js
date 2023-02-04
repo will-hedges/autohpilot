@@ -11,6 +11,7 @@ import { OccupationTextBox } from "./noteFields/OccupationTextBox";
 import { PatientAgeField } from "./noteFields/PatientAgeField";
 import { PatientGenderButtons } from "./noteFields/PatientGenderButtons";
 import { ReligiousButtons } from "./noteFields/ReligiousButtons";
+import { SymptomsCheckboxes } from "./noteFields/SymptomsCheckboxes";
 import { TraumaHistoryButtons } from "./noteFields/TraumaHistoryButtons";
 import { VeteranStatusDropdown } from "./noteFields/VeteranStatusDropdown";
 import { VisitDateAndTimeSelectors } from "./noteFields/VisitDateAndTimeSelectors";
@@ -29,6 +30,7 @@ export const NoteForm = () => {
         <VisitLocationDropdown />
         <ChiefComplaintTextBox />
         {/* TODO symptoms will go here */}
+        <SymptomsCheckboxes />
         <ModifyingFactorsTextBoxes />
 
         {/* PSYCHOSOCIAL SUPPORTS */}
