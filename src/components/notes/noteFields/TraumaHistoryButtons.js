@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const Trauma = () => {
+export const TraumaHistoryButtons = () => {
   const [trauma, setTrauma] = useState();
   const [traumaNotes, setTraumaNotes] = useState("");
 

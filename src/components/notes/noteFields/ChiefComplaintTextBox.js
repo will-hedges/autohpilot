@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const ChiefComplaint = () => {
+export const ChiefComplaintTextBox = () => {
   const [chiefComplaint, setChiefComplaint] = useState("");
 
   return (

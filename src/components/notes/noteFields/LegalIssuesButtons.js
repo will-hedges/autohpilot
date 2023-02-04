@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const LegalIssues = () => {
+export const LegalIssuesButtons = () => {
   const [legalIssues, setLegalIssues] = useState();
   const [legalIssuesNotes, setLegalIssuesNotes] = useState("");
 
