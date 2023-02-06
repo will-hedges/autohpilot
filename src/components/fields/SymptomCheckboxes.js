@@ -30,7 +30,7 @@ const CourseDropdown = ({ symptomId }) => {
   );
 };
 
-export const SymptomsCheckboxes = () => {
+export const SymptomCheckboxes = () => {
   const [symptoms, setSymptoms] = useState([]);
   const [checkedSymptoms, setCheckedSymptoms] = useState([]);
 
@@ -57,7 +57,7 @@ export const SymptomsCheckboxes = () => {
 
   return (
     <div className="form-group">
-      <label htmlFor="symptoms-checkboxes">Symptoms</label>
+      <label htmlFor="symptom-checkboxes">Symptoms</label>
       {symptoms.map((symptom) => {
         return (
           <div key={symptom.id}>

@@ -11,7 +11,8 @@ import { OccupationTextBox } from "../fields/OccupationTextBox";
 import { PatientAgeField } from "../fields/PatientAgeField";
 import { PatientGenderButtons } from "../fields/PatientGenderButtons";
 import { ReligiousButtons } from "../fields/ReligiousButtons";
-import { SymptomsCheckboxes } from "../fields/SymptomsCheckboxes";
+import { SubstanceCheckboxes } from "../fields/SubstanceCheckboxes";
+import { SymptomCheckboxes } from "../fields/SymptomCheckboxes";
 import { TraumaHistoryButtons } from "../fields/TraumaHistoryButtons";
 import { VeteranStatusDropdown } from "../fields/VeteranStatusDropdown";
 import { VisitDateAndTimeSelectors } from "../fields/VisitDateAndTimeSelectors";
@@ -29,8 +30,7 @@ export const NoteForm = () => {
         <VisitTypeButtons />
         <VisitLocationDropdown />
         <ChiefComplaintTextBox />
-        {/* TODO symptoms will go here */}
-        <SymptomsCheckboxes />
+        <SymptomCheckboxes />
         <ModifyingFactorsTextBoxes />
 
         {/* PSYCHOSOCIAL SUPPORTS */}
@@ -46,6 +46,7 @@ export const NoteForm = () => {
 
         {/* FAMILY PSYCH HX/SUBSTANCE ABUSE HX */}
         {/* TODO substances will go here */}
+        <SubstanceCheckboxes />
         <FamilySuicideButtons />
         {/* TODO childhood? */}
         <TraumaHistoryButtons />
