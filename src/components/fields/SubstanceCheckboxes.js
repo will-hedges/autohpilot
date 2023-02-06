@@ -47,7 +47,7 @@ export const SubstanceCheckboxes = () => {
 
   return (
     <div className="form-group">
-      <label htmlFor="substance-checkboxes">Substance Abuse History</label>
+      <label htmlFor="substance-checkboxes">Substance Abuse History:</label>
       {substances.map((substance) => {
         return (
           <div key={substance.id}>

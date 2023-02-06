@@ -57,7 +57,7 @@ export const SymptomCheckboxes = () => {
 
   return (
     <div className="form-group">
-      <label htmlFor="symptom-checkboxes">Symptoms</label>
+      <label htmlFor="symptom-checkboxes">Symptoms:</label>
       {symptoms.map((symptom) => {
         return (
           <div key={symptom.id}>
