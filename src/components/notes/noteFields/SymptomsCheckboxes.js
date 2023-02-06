@@ -2,20 +2,23 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
+const symptomCourses = ["fluctuating", "episodic", "chronic"];
+
 export const SymptomsCheckboxes = () => {
   const [symptoms, setSymptoms] = useState([]);
-
-  let checkedSymptoms = [];
+  const [checkedSymptoms, setCheckedSymptoms] = useState([]);
 
   const handleCheckboxChange = (evt) => {
     const symptom = evt.target;
-    const symptomId = evt.target.value;
+    const copy = [...checkedSymptoms];
+
     if (symptom.checked) {
-      // add to checkedSymptoms
-      checkedSymptoms.push(symptomId);
+      copy.push(parseInt(symptom.value));
+      setCheckedSymptoms(copy);
     } else {
-      // remove from checkedSymptoms
-      checkedSymptoms = checkedSymptoms.filter((val) => val !== symptomId);
+      setCheckedSymptoms(
+        copy.filter((symptomId) => symptomId !== parseInt(symptom.value))
+      );
     }
   };
 
@@ -42,6 +45,8 @@ export const SymptomsCheckboxes = () => {
               onChange={handleCheckboxChange}
             />
             <label htmlFor={symptom.name}>{symptom.name}</label>
+
+            {/* display a 'course' dropdown if the box is checked */}
           </div>
         );
       })}
