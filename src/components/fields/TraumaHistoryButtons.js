@@ -10,12 +10,16 @@ export const TraumaHistoryButtons = () => {
   };
 
   useEffect(() => {
+    // on render, state will be undefined
     if (typeof trauma === "undefined") {
       setTraumaNotes("");
     } else if (!trauma) {
       setTraumaNotes(
         "Denies any hx of physical, sexual, and/or emotional/psychological abuse."
       );
+    } else {
+      // reset state to blank string, in case the use selects 'no' then 'yes'
+      setTraumaNotes("");
     }
   }, [trauma]);
 
