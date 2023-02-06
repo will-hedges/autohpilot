@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { ChiefComplaintTextBox } from "../fields/ChiefComplaintTextBox";
 import { EducationLevelDropdown } from "../fields/EducationLevelDropdown";
 import { FamilySuicideButtons } from "../fields/FamilySuicideButtons";
@@ -20,15 +22,26 @@ import { VisitLocationDropdown } from "../fields/VisitLocationDropdown";
 import { VisitTypeButtons } from "../fields/VisitTypeButtons";
 
 export const NoteForm = () => {
+  const [visitDate, setVisitDate] = useState();
+  const [visitTime, setVisitTime] = useState();
+  const [patientAge, setPatientAge] = useState();
+  const [patientGender, setPatientGender] = useState();
+  const [visitType, setVisitType] = useState();
+
+  const [visitLocation, setVisitLocation] = useState();
+
   return (
     <div className="note__form">
       <h2 className="note__header">New Note</h2>
       <fieldset>
-        <VisitDateAndTimeSelectors />
-        <PatientAgeField />
-        <PatientGenderButtons />
-        <VisitTypeButtons />
-        <VisitLocationDropdown />
+        <VisitDateAndTimeSelectors
+          visitDateSetter={setVisitDate}
+          visitTimeSetter={setVisitTime}
+        />
+        <PatientAgeField patientAgeSetter={setPatientAge} />
+        <PatientGenderButtons patientGenderSetter={setPatientGender} />
+        <VisitTypeButtons visitTypeSetter={setVisitType} />
+        <VisitLocationDropdown visitLocationSetter={setVisitLocation} />
         <ChiefComplaintTextBox />
         <SymptomCheckboxes />
         <ModifyingFactorsTextBoxes />
@@ -50,6 +63,7 @@ export const NoteForm = () => {
         {/* TODO childhood? */}
         <TraumaHistoryButtons />
       </fieldset>
+      <button>Save Note</button>
     </div>
   );
 };

@@ -1,16 +1,12 @@
-import { useState } from "react";
-
-export const PatientAgeField = () => {
-  const [patientAge, setPatientAge] = useState();
+export const PatientAgeField = ({ patientAgeSetter }) => {
   return (
     <div className="form-group">
       <label htmlFor="patientAge">Patient Age:</label>
       <input
         type="number"
         name="patientAge"
-        value={patientAge}
         onChange={(evt) => {
-          setPatientAge(parseInt(evt.target.value));
+          patientAgeSetter(parseInt(evt.target.value));
         }}
       />
       years

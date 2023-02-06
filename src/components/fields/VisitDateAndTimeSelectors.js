@@ -1,18 +1,15 @@
-import { useState } from "react";
-
-export const VisitDateAndTimeSelectors = () => {
-  const [visitDate, setVisitDate] = useState();
-  const [visitTime, setVisitTime] = useState();
-
+export const VisitDateAndTimeSelectors = ({
+  visitDateSetter,
+  visitTimeSetter,
+}) => {
   return (
     <div className="form-group">
       <label htmlFor="visitDate">Visit Date:</label>
       <input
         type="date"
         name="visitDate"
-        value={visitDate}
         onChange={(evt) => {
-          setVisitDate(evt.target.value);
+          visitDateSetter(evt.target.value);
         }}
       />
 
@@ -20,9 +17,8 @@ export const VisitDateAndTimeSelectors = () => {
       <input
         type="time"
         name="visitTime"
-        value={visitTime}
         onChange={(evt) => {
-          setVisitTime(evt.target.value);
+          visitTimeSetter(evt.target.value);
         }}
       />
     </div>

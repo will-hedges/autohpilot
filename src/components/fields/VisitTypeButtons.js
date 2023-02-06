@@ -1,10 +1,6 @@
-import { useState } from "react";
-
-export const VisitTypeButtons = () => {
-  const [visitType, setVisitType] = useState("");
-
+export const VisitTypeButtons = ({ visitTypeSetter }) => {
   const handleVisitTypeChange = (evt) => {
-    setVisitType(evt.target.value);
+    visitTypeSetter(evt.target.value);
   };
 
   return (
@@ -14,7 +10,7 @@ export const VisitTypeButtons = () => {
 
         <input
           type="radio"
-          value="initial-visit"
+          value="Initial Visit"
           id="initial-visit"
           onChange={handleVisitTypeChange}
           name="visitType"
@@ -23,7 +19,7 @@ export const VisitTypeButtons = () => {
 
         <input
           type="radio"
-          value="follow-up"
+          value="Follow-Up"
           id="follow-up"
           onChange={handleVisitTypeChange}
           name="visitType"
