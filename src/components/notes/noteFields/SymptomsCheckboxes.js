@@ -2,7 +2,33 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-const symptomCourses = ["fluctuating", "episodic", "chronic"];
+const CourseDropdown = ({ symptomId }) => {
+  const courses = ["Fluctuating", "Episodic", "Chronic"];
+  const [chosenCourse, setChosenCourse] = useState("");
+
+  return (
+    <>
+      <select
+        name={`symptom-${symptomId}-course`}
+        value={chosenCourse}
+        onChange={(evt) => {
+          setChosenCourse(evt.target.value);
+        }}
+      >
+        <option value="" className="form-option">
+          Select a symptom course
+        </option>
+        {courses.map((course) => {
+          return (
+            <option key={course} value={course}>
+              {course}
+            </option>
+          );
+        })}
+      </select>
+    </>
+  );
+};
 
 export const SymptomsCheckboxes = () => {
   const [symptoms, setSymptoms] = useState([]);
@@ -10,15 +36,14 @@ export const SymptomsCheckboxes = () => {
 
   const handleCheckboxChange = (evt) => {
     const symptom = evt.target;
+    const symptomId = parseInt(symptom.value);
     const copy = [...checkedSymptoms];
 
     if (symptom.checked) {
-      copy.push(parseInt(symptom.value));
+      copy.push(symptomId);
       setCheckedSymptoms(copy);
     } else {
-      setCheckedSymptoms(
-        copy.filter((symptomId) => symptomId !== parseInt(symptom.value))
-      );
+      setCheckedSymptoms(copy.filter((s) => s !== symptomId));
     }
   };
 
@@ -45,8 +70,12 @@ export const SymptomsCheckboxes = () => {
               onChange={handleCheckboxChange}
             />
             <label htmlFor={symptom.name}>{symptom.name}</label>
-
             {/* display a 'course' dropdown if the box is checked */}
+            {checkedSymptoms.includes(parseInt(symptom.id)) ? (
+              <CourseDropdown symptomId={symptom.id} />
+            ) : (
+              ""
+            )}
           </div>
         );
       })}
