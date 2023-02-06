@@ -11,9 +11,13 @@ export const FamilySuicideButtons = () => {
 
   useEffect(() => {
     if (typeof familySuicide === "undefined") {
+      // on render, state will be undefined
       setFamilySuicideNotes("");
     } else if (!familySuicide) {
       setFamilySuicideNotes("Denies any family history of suicide.");
+    } else {
+      // reset to blank string, in case user selects 'No' then 'Yes'
+      setFamilySuicideNotes("");
     }
   }, [familySuicide]);
 

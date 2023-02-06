@@ -2,7 +2,7 @@ import { ChiefComplaintTextBox } from "../fields/ChiefComplaintTextBox";
 import { EducationLevelDropdown } from "../fields/EducationLevelDropdown";
 import { FamilySuicideButtons } from "../fields/FamilySuicideButtons";
 import { FinancialIssuesButtons } from "../fields/FinancialIssuesButtons";
-import { HeadInjuryDropdown } from "../fields/HeadInjuryDropdown";
+import { HeadInjuryButtons } from "../fields/HeadInjuryButtons";
 import { HousingStatusDropdown } from "../fields/HousingStatusDropdown";
 import { LegalIssuesButtons } from "../fields/LegalIssuesButtons";
 import { MaritalStatusDropdown } from "../fields/MaritalStatusDropdown";
@@ -42,10 +42,9 @@ export const NoteForm = () => {
         <HousingStatusDropdown />
         <LegalIssuesButtons />
         <VeteranStatusDropdown />
-        <HeadInjuryDropdown />
+        <HeadInjuryButtons />
 
         {/* FAMILY PSYCH HX/SUBSTANCE ABUSE HX */}
-        {/* TODO substances will go here */}
         <SubstanceCheckboxes />
         <FamilySuicideButtons />
         {/* TODO childhood? */}

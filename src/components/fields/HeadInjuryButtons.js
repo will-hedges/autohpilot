@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const HeadInjuryDropdown = () => {
+export const HeadInjuryButtons = () => {
   const [headInjury, setHeadInjury] = useState();
   const [headInjuryNotes, setHeadInjuryNotes] = useState("");
 
@@ -11,11 +11,15 @@ export const HeadInjuryDropdown = () => {
 
   useEffect(() => {
     if (typeof headInjury === "undefined") {
+      // on render, state will be undefined
       setHeadInjuryNotes("");
     } else if (!headInjury) {
       setHeadInjuryNotes(
         "Denies any history of seizures, serious head injuries/TBIs."
       );
+    } else {
+      // reset to blank string, in case user selects 'No' then 'Yes'
+      setHeadInjuryNotes("");
     }
   }, [headInjury]);
 
