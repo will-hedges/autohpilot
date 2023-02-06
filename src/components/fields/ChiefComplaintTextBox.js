@@ -1,17 +1,12 @@
-import { useState } from "react";
-
-export const ChiefComplaintTextBox = () => {
-  const [chiefComplaint, setChiefComplaint] = useState("");
-
+export const ChiefComplaintTextBox = ({ chiefComplaintSetter }) => {
   return (
     <div className="form-group">
       <label htmlFor="chiefComplaint">Chief Complaint:</label>
       <input
         type="text"
         name="chiefComplaint"
-        value={chiefComplaint}
         onChange={(evt) => {
-          setChiefComplaint(evt.target.value);
+          chiefComplaintSetter(evt.target.value);
         }}
       />
     </div>

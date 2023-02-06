@@ -27,8 +27,8 @@ export const NoteForm = () => {
   const [patientAge, setPatientAge] = useState();
   const [patientGender, setPatientGender] = useState();
   const [visitType, setVisitType] = useState();
-
   const [visitLocation, setVisitLocation] = useState();
+  const [chiefComplaint, setChiefComplaint] = useState();
 
   return (
     <div className="note__form">
@@ -42,7 +42,7 @@ export const NoteForm = () => {
         <PatientGenderButtons patientGenderSetter={setPatientGender} />
         <VisitTypeButtons visitTypeSetter={setVisitType} />
         <VisitLocationDropdown visitLocationSetter={setVisitLocation} />
-        <ChiefComplaintTextBox />
+        <ChiefComplaintTextBox chiefComplaintSetter={setChiefComplaint} />
         <SymptomCheckboxes />
         <ModifyingFactorsTextBoxes />
 
