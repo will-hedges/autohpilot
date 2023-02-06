@@ -32,7 +32,7 @@ export const SymptomsCheckboxes = () => {
       <label htmlFor="symptoms-checkboxes">Symptoms</label>
       {symptoms.map((symptom) => {
         return (
-          <div>
+          <div key={symptom.id}>
             <input
               type="checkbox"
               className="symptom-checkbox"
@@ -41,9 +41,7 @@ export const SymptomsCheckboxes = () => {
               name={symptom.name}
               onChange={handleCheckboxChange}
             />
-            <label htmlFor={symptom.name} key={`symptom--${symptom.id}`}>
-              {symptom.name}
-            </label>
+            <label htmlFor={symptom.name}>{symptom.name}</label>
           </div>
         );
       })}
