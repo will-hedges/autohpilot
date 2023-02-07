@@ -24,21 +24,21 @@ import { VisitTypeButtons } from "../fields/VisitTypeButtons";
 export const NoteForm = () => {
   // TODO initial state for anything NOT saved on it's own table
   //  should initially be a blank string
-  const [visitDate, setVisitDate] = useState();
-  const [visitTime, setVisitTime] = useState();
+  const [visitDate, setVisitDate] = useState("");
+  const [visitTime, setVisitTime] = useState("");
   const [patientAge, setPatientAge] = useState();
-  const [patientGender, setPatientGender] = useState();
-  const [visitType, setVisitType] = useState();
+  const [patientGender, setPatientGender] = useState("");
+  const [visitType, setVisitType] = useState("");
   const [visitLocation, setVisitLocation] = useState();
-  const [chiefComplaint, setChiefComplaint] = useState();
+  const [chiefComplaint, setChiefComplaint] = useState("");
   const [checkedSymptoms, setCheckedSymptoms] = useState({});
-  const [aggravatingFactors, setAggravatingFactors] = useState();
-  const [alleviatingFactors, setAlleviatingFactors] = useState();
+  const [aggravatingFactors, setAggravatingFactors] = useState("");
+  const [alleviatingFactors, setAlleviatingFactors] = useState("");
   const [maritalStatus, setMaritalStatus] = useState();
   const [educationLevel, setEducationLevel] = useState();
-  const [occupation, setOccupation] = useState();
+  const [occupation, setOccupation] = useState("");
   const [religious, setReligious] = useState();
-  const [financialIssuesNotes, setFinancialIssuesNotes] = useState();
+  const [financialIssuesNotes, setFinancialIssuesNotes] = useState("");
   const [housingStatus, setHousingStatus] = useState();
   const [legalIssuesNotes, setLegalIssuesNotes] = useState("");
   const [veteranStatus, setVeteranStatus] = useState();
@@ -70,7 +70,7 @@ export const NoteForm = () => {
         />
         <ModifyingFactorsTextBoxes
           setAggravatingFactors={setAggravatingFactors}
-          stAlleviatingFactors={setAlleviatingFactors}
+          setAlleviatingFactors={setAlleviatingFactors}
         />
 
         {/* PSYCHOSOCIAL SUPPORTS */}

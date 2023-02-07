@@ -1,6 +1,6 @@
-export const VisitTypeButtons = ({ visitTypeSetter }) => {
+export const VisitTypeButtons = ({ setVisitType }) => {
   const handleVisitTypeChange = (evt) => {
-    visitTypeSetter(evt.target.value);
+    setVisitType(evt.target.value);
   };
 
   return (
