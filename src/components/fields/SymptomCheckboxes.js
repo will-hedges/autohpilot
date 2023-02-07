@@ -30,9 +30,8 @@ const CourseDropdown = ({ symptomId }) => {
   );
 };
 
-export const SymptomCheckboxes = () => {
+export const SymptomCheckboxes = ({ checkedSymptoms, setCheckedSymptoms }) => {
   const [symptoms, setSymptoms] = useState([]);
-  const [checkedSymptoms, setCheckedSymptoms] = useState([]);
 
   const handleCheckboxChange = (evt) => {
     const symptom = evt.target;

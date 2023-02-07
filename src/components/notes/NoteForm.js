@@ -31,7 +31,7 @@ export const NoteForm = () => {
   const [visitType, setVisitType] = useState();
   const [visitLocation, setVisitLocation] = useState();
   const [chiefComplaint, setChiefComplaint] = useState();
-  // TODO symptoms hooks here
+  const [checkedSymptoms, setCheckedSymptoms] = useState([]);
   const [aggravatingFactors, setAggravatingFactors] = useState();
   const [alleviatingFactors, setAlleviatingFactors] = useState();
   const [maritalStatus, setMaritalStatus] = useState();
@@ -64,7 +64,10 @@ export const NoteForm = () => {
 
         {/* SYMPTOMS AND MODIFYING FACTORS */}
         <ChiefComplaintTextBox setChiefComplaint={setChiefComplaint} />
-        <SymptomCheckboxes />
+        <SymptomCheckboxes
+          checkedSymptoms={checkedSymptoms}
+          setCheckedSymptoms={setCheckedSymptoms}
+        />
         <ModifyingFactorsTextBoxes
           setAggravatingFactors={setAggravatingFactors}
           stAlleviatingFactors={setAlleviatingFactors}
