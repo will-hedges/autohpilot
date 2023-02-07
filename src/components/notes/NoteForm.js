@@ -22,31 +22,63 @@ import { VisitLocationDropdown } from "../fields/VisitLocationDropdown";
 import { VisitTypeButtons } from "../fields/VisitTypeButtons";
 
 export const NoteForm = () => {
-  // TODO initial state for anything NOT saved on it's own table
-  //  should initially be a blank string
-  const [visitDate, setVisitDate] = useState("");
-  const [visitTime, setVisitTime] = useState("");
-  const [patientAge, setPatientAge] = useState();
+  const localUserObj = JSON.parse(localStorage.getItem("autohpilot_user"));
+
+  const [visitDate, setVisitDate] = useState(""); // default today?
+  const [visitTime, setVisitTime] = useState(""); // default now?
+  const [patientAge, setPatientAge] = useState(0);
   const [patientGender, setPatientGender] = useState("");
   const [visitType, setVisitType] = useState("");
-  const [visitLocation, setVisitLocation] = useState();
+  const [visitLocationId, setVisitLocationId] = useState(0);
   const [chiefComplaint, setChiefComplaint] = useState("");
   const [checkedSymptoms, setCheckedSymptoms] = useState({});
   const [aggravatingFactors, setAggravatingFactors] = useState("");
   const [alleviatingFactors, setAlleviatingFactors] = useState("");
-  const [maritalStatus, setMaritalStatus] = useState();
-  const [educationLevel, setEducationLevel] = useState();
+  const [maritalStatusId, setMaritalStatusId] = useState(0);
+  const [educationLevelId, setEducationLevelId] = useState(0);
   const [occupation, setOccupation] = useState("");
-  const [religious, setReligious] = useState();
+  const [religious, setReligious] = useState(null);
   const [financialIssuesNotes, setFinancialIssuesNotes] = useState("");
-  const [housingStatus, setHousingStatus] = useState();
+  const [housingStatusId, setHousingStatusId] = useState();
   const [legalIssuesNotes, setLegalIssuesNotes] = useState("");
-  const [veteranStatus, setVeteranStatus] = useState();
+  const [veteranStatusId, setVeteranStatusId] = useState(0);
   const [headInjuryNotes, setHeadInjuryNotes] = useState("");
   const [checkedSubstances, setCheckedSubstances] = useState({});
   const [familySuicideHistoryNotes, setFamilySuicideHistoryNotes] =
     useState("");
   const [traumaHistoryNotes, setTraumaHistoryNotes] = useState("");
+
+  const handleSubmitNoteButtonClick = () => {
+    // add some logic here for required fields
+    // if false, show a window alert or similar for req'd fields
+    const noteObj = {
+      userId: localUserObj.id,
+      visitDate: visitDate,
+      visitTime: visitTime,
+      patientAge: patientAge,
+      patientGender: patientGender,
+      visitLocationId: visitLocationId,
+      visitType: visitType,
+      chiefComplaint: chiefComplaint,
+      checkedSymptoms: checkedSymptoms,
+      aggravatingFactors: aggravatingFactors,
+      alleviatingFactors: alleviatingFactors,
+      maritalStatusId: maritalStatusId,
+      educationLevelId: educationLevelId,
+      occupation: occupation,
+      religious: religious,
+      financialIssues: financialIssuesNotes,
+      housingStatusId: housingStatusId,
+      legalIssues: legalIssuesNotes,
+      veteranStatusId: veteranStatusId,
+      headInjury: headInjuryNotes,
+      familySuicideHistory: familySuicideHistoryNotes,
+      traumaHistory: traumaHistoryNotes,
+    };
+
+    // loop over keys and if anything is undefined or '', delete?
+    console.log(noteObj);
+  };
 
   return (
     <div className="note__form">
@@ -60,7 +92,7 @@ export const NoteForm = () => {
         <PatientAgeField setPatientAge={setPatientAge} />
         <PatientGenderButtons setPatientGender={setPatientGender} />
         <VisitTypeButtons setVisitType={setVisitType} />
-        <VisitLocationDropdown setVisitLocation={setVisitLocation} />
+        <VisitLocationDropdown setVisitLocationId={setVisitLocationId} />
 
         {/* SYMPTOMS AND MODIFYING FACTORS */}
         <ChiefComplaintTextBox setChiefComplaint={setChiefComplaint} />
@@ -74,16 +106,16 @@ export const NoteForm = () => {
         />
 
         {/* PSYCHOSOCIAL SUPPORTS */}
-        <MaritalStatusDropdown setMaritalStatus={setMaritalStatus} />
-        <EducationLevelDropdown setEducationLevel={setEducationLevel} />
+        <MaritalStatusDropdown setMaritalStatusId={setMaritalStatusId} />
+        <EducationLevelDropdown setEducationLevelId={setEducationLevelId} />
         <OccupationTextBox setOccupation={setOccupation} />
         <ReligiousButtons setReligious={setReligious} />
         <FinancialIssuesButtons
           setFinancialIssuesNotes={setFinancialIssuesNotes}
         />
-        <HousingStatusDropdown setHousingStatus={setHousingStatus} />
+        <HousingStatusDropdown setHousingStatusId={setHousingStatusId} />
         <LegalIssuesButtons setLegalIssuesNotes={setLegalIssuesNotes} />
-        <VeteranStatusDropdown setVeteranStatus={setVeteranStatus} />
+        <VeteranStatusDropdown setVeteranStatusId={setVeteranStatusId} />
         <HeadInjuryButtons setHeadInjuryNotes={setHeadInjuryNotes} />
 
         {/* FAMILY PSYCH HX/SUBSTANCE ABUSE HX */}
@@ -97,7 +129,7 @@ export const NoteForm = () => {
         />
         <TraumaHistoryButtons setTraumaHistoryNotes={setTraumaHistoryNotes} />
       </fieldset>
-      <button>Save Note</button>
+      <button onClick={handleSubmitNoteButtonClick}>Submit Note</button>
     </div>
   );
 };

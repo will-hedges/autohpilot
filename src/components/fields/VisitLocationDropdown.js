@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-export const VisitLocationDropdown = ({ setVisitLocation }) => {
+export const VisitLocationDropdown = ({ setVisitLocationId }) => {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
@@ -18,9 +18,9 @@ export const VisitLocationDropdown = ({ setVisitLocation }) => {
       <label htmlFor="location">Visit Location:</label>
       <select
         name="location"
-        onChange={(evt) => setVisitLocation(parseInt(evt.target.value))}
+        onChange={(evt) => setVisitLocationId(parseInt(evt.target.value))}
       >
-        <option value="" className="form-option">
+        <option value={0} className="form-option">
           Select a location
         </option>
         {locations.map((loc) => {

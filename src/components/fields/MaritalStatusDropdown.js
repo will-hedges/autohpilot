@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-export const MaritalStatusDropdown = ({ setMaritalStatus }) => {
+export const MaritalStatusDropdown = ({ setMaritalStatusId }) => {
   const [statuses, setStatuses] = useState([]);
 
   useEffect(() => {
@@ -18,9 +18,9 @@ export const MaritalStatusDropdown = ({ setMaritalStatus }) => {
       <label htmlFor="marital-status">Marital Status:</label>
       <select
         name="marital-status"
-        onChange={(evt) => setMaritalStatus(parseInt(evt.target.value))}
+        onChange={(evt) => setMaritalStatusId(parseInt(evt.target.value))}
       >
-        <option value="" className="form-option">
+        <option value={0} className="form-option">
           Select a marital status
         </option>
         {statuses.map((status) => {
