@@ -43,7 +43,7 @@ export const NoteForm = () => {
   const [legalIssuesNotes, setLegalIssuesNotes] = useState("");
   const [veteranStatus, setVeteranStatus] = useState();
   const [headInjuryNotes, setHeadInjuryNotes] = useState("");
-  // TODO substances hooks here
+  const [checkedSubstances, setCheckedSubstances] = useState([]);
   const [familySuicideHistoryNotes, setFamilySuicideHistoryNotes] =
     useState("");
   const [traumaHistoryNotes, setTraumaHistoryNotes] = useState("");
@@ -84,7 +84,10 @@ export const NoteForm = () => {
         <HeadInjuryButtons setHeadInjuryNotes={setHeadInjuryNotes} />
 
         {/* FAMILY PSYCH HX/SUBSTANCE ABUSE HX */}
-        <SubstanceCheckboxes />
+        <SubstanceCheckboxes
+          checkedSubstances={checkedSubstances}
+          setCheckedSubstances={setCheckedSubstances}
+        />
         {/* TODO refactor this component name. still don't like it */}
         <FamilySuicideButtons
           setFamilySuicideHistoryNotes={setFamilySuicideHistoryNotes}

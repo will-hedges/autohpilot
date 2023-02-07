@@ -20,9 +20,11 @@ const LastUseTextBox = ({ substanceId }) => {
   );
 };
 
-export const SubstanceCheckboxes = () => {
+export const SubstanceCheckboxes = ({
+  checkedSubstances,
+  setCheckedSubstances,
+}) => {
   const [substances, setSubstances] = useState([]);
-  const [checkedSubstances, setCheckedSubstances] = useState([]);
 
   const handleCheckboxChange = (evt) => {
     const substance = evt.target;
