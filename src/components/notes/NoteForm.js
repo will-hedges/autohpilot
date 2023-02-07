@@ -31,7 +31,7 @@ export const NoteForm = () => {
   const [visitType, setVisitType] = useState();
   const [visitLocation, setVisitLocation] = useState();
   const [chiefComplaint, setChiefComplaint] = useState();
-  const [checkedSymptoms, setCheckedSymptoms] = useState([]);
+  const [checkedSymptoms, setCheckedSymptoms] = useState({});
   const [aggravatingFactors, setAggravatingFactors] = useState();
   const [alleviatingFactors, setAlleviatingFactors] = useState();
   const [maritalStatus, setMaritalStatus] = useState();
