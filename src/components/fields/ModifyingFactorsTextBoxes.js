@@ -1,6 +1,6 @@
 export const ModifyingFactorsTextBoxes = ({
-  aggravatingFactorsSetter,
-  alleviatingFactorsSetter,
+  setAggravatingFactors,
+  setAlleviatingFactors,
 }) => {
   return (
     // TODO could probably DRY this up
@@ -11,7 +11,7 @@ export const ModifyingFactorsTextBoxes = ({
           type="text"
           name="aggravatingFactors"
           onChange={(evt) => {
-            aggravatingFactorsSetter(evt.target.value);
+            setAggravatingFactors(evt.target.value);
           }}
         />
       </div>
@@ -22,7 +22,7 @@ export const ModifyingFactorsTextBoxes = ({
           type="text"
           name="alleviatingFactors"
           onChange={(evt) => {
-            alleviatingFactorsSetter(evt.target.value);
+            setAlleviatingFactors(evt.target.value);
           }}
         />
       </div>

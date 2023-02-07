@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const LegalIssuesButtons = ({ legalIssuesNotesSetter }) => {
+export const LegalIssuesButtons = ({ setLegalIssuesNotes }) => {
   const [legalIssues, setLegalIssues] = useState();
 
   const handleLegalIssuesBool = (evt) => {
@@ -10,9 +10,9 @@ export const LegalIssuesButtons = ({ legalIssuesNotesSetter }) => {
 
   useEffect(() => {
     if (!legalIssues) {
-      legalIssuesNotesSetter("");
+      setLegalIssuesNotes("");
     }
-  }, [legalIssues, legalIssuesNotesSetter]);
+  }, [legalIssues, setLegalIssuesNotes]);
 
   return (
     <div className="form-group">
@@ -43,7 +43,7 @@ export const LegalIssuesButtons = ({ legalIssuesNotesSetter }) => {
             type="text"
             id="legalIssuesNotes"
             onChange={(evt) => {
-              legalIssuesNotesSetter(evt.target.value);
+              setLegalIssuesNotes(evt.target.value);
             }}
           />
         </div>

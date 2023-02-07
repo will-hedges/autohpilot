@@ -1,4 +1,4 @@
-export const PatientAgeField = ({ patientAgeSetter }) => {
+export const PatientAgeField = ({ setPatientAge }) => {
   return (
     <div className="form-group">
       <label htmlFor="patientAge">Patient Age:</label>
@@ -6,7 +6,7 @@ export const PatientAgeField = ({ patientAgeSetter }) => {
         type="number"
         name="patientAge"
         onChange={(evt) => {
-          patientAgeSetter(parseInt(evt.target.value));
+          setPatientAge(parseInt(evt.target.value));
         }}
       />
       years

@@ -1,7 +1,4 @@
-export const VisitDateAndTimeSelectors = ({
-  visitDateSetter,
-  visitTimeSetter,
-}) => {
+export const VisitDateAndTimeSelectors = ({ setVisitDate, setVisitTime }) => {
   return (
     <div className="form-group">
       <label htmlFor="visitDate">Visit Date:</label>
@@ -9,7 +6,7 @@ export const VisitDateAndTimeSelectors = ({
         type="date"
         name="visitDate"
         onChange={(evt) => {
-          visitDateSetter(evt.target.value);
+          setVisitDate(evt.target.value);
         }}
       />
 
@@ -18,7 +15,7 @@ export const VisitDateAndTimeSelectors = ({
         type="time"
         name="visitTime"
         onChange={(evt) => {
-          visitTimeSetter(evt.target.value);
+          setVisitTime(evt.target.value);
         }}
       />
     </div>

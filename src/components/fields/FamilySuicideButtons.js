@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const FamilySuicideButtons = ({ familySuicideHistoryNotesSetter }) => {
+export const FamilySuicideButtons = ({ setFamilySuicideHistoryNotes }) => {
   const [familySuicide, setFamilySuicide] = useState();
 
   const handleFamilySuicideBool = (evt) => {
@@ -11,14 +11,14 @@ export const FamilySuicideButtons = ({ familySuicideHistoryNotesSetter }) => {
   useEffect(() => {
     if (typeof familySuicide === "undefined") {
       // on render, state will be undefined
-      familySuicideHistoryNotesSetter("");
+      setFamilySuicideHistoryNotes("");
     } else if (!familySuicide) {
-      familySuicideHistoryNotesSetter("Denies any family history of suicide.");
+      setFamilySuicideHistoryNotes("Denies any family history of suicide.");
     } else {
       // reset to blank string, in case user selects 'No' then 'Yes'
-      familySuicideHistoryNotesSetter("");
+      setFamilySuicideHistoryNotes("");
     }
-  }, [familySuicide, familySuicideHistoryNotesSetter]);
+  }, [familySuicide, setFamilySuicideHistoryNotes]);
 
   return (
     <div className="form-group">
@@ -49,7 +49,7 @@ export const FamilySuicideButtons = ({ familySuicideHistoryNotesSetter }) => {
             type="text"
             id="familySuicideNotes"
             onChange={(evt) => {
-              familySuicideHistoryNotesSetter(evt.target.value);
+              setFamilySuicideHistoryNotes(evt.target.value);
             }}
           />
         </div>

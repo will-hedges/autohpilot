@@ -1,6 +1,6 @@
-export const PatientGenderButtons = ({ patientGenderSetter }) => {
+export const PatientGenderButtons = ({ setPatientGender }) => {
   const handleGenderChange = (evt) => {
-    patientGenderSetter(evt.target.value);
+    setPatientGender(evt.target.value);
   };
 
   return (

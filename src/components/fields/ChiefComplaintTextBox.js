@@ -1,4 +1,4 @@
-export const ChiefComplaintTextBox = ({ chiefComplaintSetter }) => {
+export const ChiefComplaintTextBox = ({ setChiefComplaint }) => {
   return (
     <div className="form-group">
       <label htmlFor="chiefComplaint">Chief Complaint:</label>
@@ -6,7 +6,7 @@ export const ChiefComplaintTextBox = ({ chiefComplaintSetter }) => {
         type="text"
         name="chiefComplaint"
         onChange={(evt) => {
-          chiefComplaintSetter(evt.target.value);
+          setChiefComplaint(evt.target.value);
         }}
       />
     </div>

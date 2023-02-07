@@ -1,7 +1,7 @@
-export const ReligiousButtons = ({ religiousSetter }) => {
+export const ReligiousButtons = ({ setReligious }) => {
   const handleReligiousBool = (evt) => {
     let boolState = evt.target.value === "true" ? true : false;
-    religiousSetter(boolState);
+    setReligious(boolState);
   };
 
   return (

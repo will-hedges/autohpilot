@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const HeadInjuryButtons = ({ headInjuryNotesSetter }) => {
+export const HeadInjuryButtons = ({ setHeadInjuryNotes }) => {
   const [headInjury, setHeadInjury] = useState();
 
   const handleHeadInjuryBool = (evt) => {
@@ -11,16 +11,16 @@ export const HeadInjuryButtons = ({ headInjuryNotesSetter }) => {
   useEffect(() => {
     if (typeof headInjury === "undefined") {
       // on render, state will be undefined
-      headInjuryNotesSetter("");
+      setHeadInjuryNotes("");
     } else if (!headInjury) {
-      headInjuryNotesSetter(
+      setHeadInjuryNotes(
         "Denies any history of seizures, serious head injuries/TBIs."
       );
     } else {
       // reset to blank string, in case user selects 'No' then 'Yes'
-      headInjuryNotesSetter("");
+      setHeadInjuryNotes("");
     }
-  }, [headInjury, headInjuryNotesSetter]);
+  }, [headInjury, setHeadInjuryNotes]);
 
   return (
     <div className="form-group">
@@ -51,7 +51,7 @@ export const HeadInjuryButtons = ({ headInjuryNotesSetter }) => {
             type="text"
             id="headInjuryNotes"
             onChange={(evt) => {
-              headInjuryNotesSetter(evt.target.value);
+              setHeadInjuryNotes(evt.target.value);
             }}
           />
         </div>

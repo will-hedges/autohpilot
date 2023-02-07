@@ -54,44 +54,42 @@ export const NoteForm = () => {
       <fieldset>
         {/* DEMOGRAPHICS / APPOINTMENT DATE & TIME */}
         <VisitDateAndTimeSelectors
-          visitDateSetter={setVisitDate}
-          visitTimeSetter={setVisitTime}
+          setVisitDate={setVisitDate}
+          setVisitTime={setVisitTime}
         />
-        <PatientAgeField patientAgeSetter={setPatientAge} />
-        <PatientGenderButtons patientGenderSetter={setPatientGender} />
-        <VisitTypeButtons visitTypeSetter={setVisitType} />
-        <VisitLocationDropdown visitLocationSetter={setVisitLocation} />
+        <PatientAgeField setPatientAge={setPatientAge} />
+        <PatientGenderButtons setPatientGender={setPatientGender} />
+        <VisitTypeButtons setVisitType={setVisitType} />
+        <VisitLocationDropdown setVisitLocation={setVisitLocation} />
 
         {/* SYMPTOMS AND MODIFYING FACTORS */}
-        <ChiefComplaintTextBox chiefComplaintSetter={setChiefComplaint} />
+        <ChiefComplaintTextBox setChiefComplaint={setChiefComplaint} />
         <SymptomCheckboxes />
         <ModifyingFactorsTextBoxes
-          aggravatingFactorsSetter={setAggravatingFactors}
-          alleviatingFactorsSetter={setAlleviatingFactors}
+          setAggravatingFactors={setAggravatingFactors}
+          stAlleviatingFactors={setAlleviatingFactors}
         />
 
         {/* PSYCHOSOCIAL SUPPORTS */}
-        <MaritalStatusDropdown maritalStatusSetter={setMaritalStatus} />
-        <EducationLevelDropdown educationLevelSetter={setEducationLevel} />
-        <OccupationTextBox occupationSetter={setOccupation} />
-        <ReligiousButtons religiousSetter={setReligious} />
+        <MaritalStatusDropdown setMaritalStatus={setMaritalStatus} />
+        <EducationLevelDropdown setEducationLevel={setEducationLevel} />
+        <OccupationTextBox setOccupation={setOccupation} />
+        <ReligiousButtons setReligious={setReligious} />
         <FinancialIssuesButtons
-          financialIssuesNotesSetter={setFinancialIssuesNotes}
+          setFinancialIssuesNotes={setFinancialIssuesNotes}
         />
-        <HousingStatusDropdown housingStatusSetter={setHousingStatus} />
-        <LegalIssuesButtons legalIssuesNotesSetter={setLegalIssuesNotes} />
-        <VeteranStatusDropdown veteranStatusSetter={setVeteranStatus} />
-        <HeadInjuryButtons headInjuryNotesSetter={setHeadInjuryNotes} />
+        <HousingStatusDropdown setHousingStatus={setHousingStatus} />
+        <LegalIssuesButtons setLegalIssuesNotes={setLegalIssuesNotes} />
+        <VeteranStatusDropdown setVeteranStatus={setVeteranStatus} />
+        <HeadInjuryButtons setHeadInjuryNotes={setHeadInjuryNotes} />
 
         {/* FAMILY PSYCH HX/SUBSTANCE ABUSE HX */}
         <SubstanceCheckboxes />
         {/* TODO refactor this component name. still don't like it */}
         <FamilySuicideButtons
-          familySuicideHistoryNotesSetter={setFamilySuicideHistoryNotes}
+          setFamilySuicideHistoryNotes={setFamilySuicideHistoryNotes}
         />
-        <TraumaHistoryButtons
-          traumaHistoryNotesSetter={setTraumaHistoryNotes}
-        />
+        <TraumaHistoryButtons setTraumaHistoryNotes={setTraumaHistoryNotes} />
       </fieldset>
       <button>Save Note</button>
     </div>

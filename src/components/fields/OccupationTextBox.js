@@ -1,4 +1,4 @@
-export const OccupationTextBox = ({ occupationSetter }) => {
+export const OccupationTextBox = ({ setOccupation }) => {
   return (
     <div className="form-group">
       <label htmlFor="occupation">Occupation:</label>
@@ -6,7 +6,7 @@ export const OccupationTextBox = ({ occupationSetter }) => {
         type="text"
         name="occupation"
         onChange={(evt) => {
-          occupationSetter(evt.target.value);
+          setOccupation(evt.target.value);
         }}
       />
     </div>

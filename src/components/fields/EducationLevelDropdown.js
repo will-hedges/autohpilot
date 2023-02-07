@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-export const EducationLevelDropdown = ({ educationLevelSetter }) => {
+export const EducationLevelDropdown = ({ setEducationLevel }) => {
   const [levels, setLevels] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export const EducationLevelDropdown = ({ educationLevelSetter }) => {
       </label>
       <select
         name="education-level"
-        onChange={(evt) => educationLevelSetter(parseInt(evt.target.value))}
+        onChange={(evt) => setEducationLevel(parseInt(evt.target.value))}
       >
         <option value="" className="form-option">
           Select an education level
