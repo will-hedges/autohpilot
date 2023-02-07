@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
-export const TraumaHistoryButtons = () => {
+export const TraumaHistoryButtons = ({ traumaHistoryNotesSetter }) => {
   const [trauma, setTrauma] = useState();
-  const [traumaNotes, setTraumaNotes] = useState("");
 
   const handleTraumaBool = (evt) => {
     let boolState = evt.target.value === "true" ? true : false;
@@ -12,16 +11,16 @@ export const TraumaHistoryButtons = () => {
   useEffect(() => {
     // on render, state will be undefined
     if (typeof trauma === "undefined") {
-      setTraumaNotes("");
+      traumaHistoryNotesSetter("");
     } else if (!trauma) {
-      setTraumaNotes(
+      traumaHistoryNotesSetter(
         "Denies any hx of physical, sexual, and/or emotional/psychological abuse."
       );
     } else {
       // reset state to blank string, in case the use selects 'no' then 'yes'
-      setTraumaNotes("");
+      traumaHistoryNotesSetter("");
     }
-  }, [trauma]);
+  }, [trauma, traumaHistoryNotesSetter]);
 
   return (
     <div className="form-group">
@@ -50,10 +49,9 @@ export const TraumaHistoryButtons = () => {
           <label htmlFor="traumaNotes">Notes:</label>
           <input
             type="text"
-            value={traumaNotes}
             id="traumaNotes"
             onChange={(evt) => {
-              setTraumaNotes(evt.target.value);
+              traumaHistoryNotesSetter(evt.target.value);
             }}
           />
         </div>

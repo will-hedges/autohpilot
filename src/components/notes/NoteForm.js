@@ -22,6 +22,8 @@ import { VisitLocationDropdown } from "../fields/VisitLocationDropdown";
 import { VisitTypeButtons } from "../fields/VisitTypeButtons";
 
 export const NoteForm = () => {
+  // TODO initial state for anything NOT saved on it's own table
+  //  should initially be a blank string
   const [visitDate, setVisitDate] = useState();
   const [visitTime, setVisitTime] = useState();
   const [patientAge, setPatientAge] = useState();
@@ -29,11 +31,28 @@ export const NoteForm = () => {
   const [visitType, setVisitType] = useState();
   const [visitLocation, setVisitLocation] = useState();
   const [chiefComplaint, setChiefComplaint] = useState();
+  // TODO symptoms hooks here
+  const [aggravatingFactors, setAggravatingFactors] = useState();
+  const [alleviatingFactors, setAlleviatingFactors] = useState();
+  const [maritalStatus, setMaritalStatus] = useState();
+  const [educationLevel, setEducationLevel] = useState();
+  const [occupation, setOccupation] = useState();
+  const [religious, setReligious] = useState();
+  const [financialIssuesNotes, setFinancialIssuesNotes] = useState();
+  const [housingStatus, setHousingStatus] = useState();
+  const [legalIssuesNotes, setLegalIssuesNotes] = useState("");
+  const [veteranStatus, setVeteranStatus] = useState();
+  const [headInjuryNotes, setHeadInjuryNotes] = useState("");
+  // TODO substances hooks here
+  const [familySuicideHistoryNotes, setFamilySuicideHistoryNotes] =
+    useState("");
+  const [traumaHistoryNotes, setTraumaHistoryNotes] = useState("");
 
   return (
     <div className="note__form">
       <h2 className="note__header">New Note</h2>
       <fieldset>
+        {/* DEMOGRAPHICS / APPOINTMENT DATE & TIME */}
         <VisitDateAndTimeSelectors
           visitDateSetter={setVisitDate}
           visitTimeSetter={setVisitTime}
@@ -42,26 +61,37 @@ export const NoteForm = () => {
         <PatientGenderButtons patientGenderSetter={setPatientGender} />
         <VisitTypeButtons visitTypeSetter={setVisitType} />
         <VisitLocationDropdown visitLocationSetter={setVisitLocation} />
+
+        {/* SYMPTOMS AND MODIFYING FACTORS */}
         <ChiefComplaintTextBox chiefComplaintSetter={setChiefComplaint} />
         <SymptomCheckboxes />
-        <ModifyingFactorsTextBoxes />
+        <ModifyingFactorsTextBoxes
+          aggravatingFactorsSetter={setAggravatingFactors}
+          alleviatingFactorsSetter={setAlleviatingFactors}
+        />
 
         {/* PSYCHOSOCIAL SUPPORTS */}
-        <MaritalStatusDropdown />
-        <EducationLevelDropdown />
-        <OccupationTextBox />
-        <ReligiousButtons />
-        <FinancialIssuesButtons />
-        <HousingStatusDropdown />
-        <LegalIssuesButtons />
-        <VeteranStatusDropdown />
-        <HeadInjuryButtons />
+        <MaritalStatusDropdown maritalStatusSetter={setMaritalStatus} />
+        <EducationLevelDropdown educationLevelSetter={setEducationLevel} />
+        <OccupationTextBox occupationSetter={setOccupation} />
+        <ReligiousButtons religiousSetter={setReligious} />
+        <FinancialIssuesButtons
+          financialIssuesNotesSetter={setFinancialIssuesNotes}
+        />
+        <HousingStatusDropdown housingStatusSetter={setHousingStatus} />
+        <LegalIssuesButtons legalIssuesNotesSetter={setLegalIssuesNotes} />
+        <VeteranStatusDropdown veteranStatusSetter={setVeteranStatus} />
+        <HeadInjuryButtons headInjuryNotesSetter={setHeadInjuryNotes} />
 
         {/* FAMILY PSYCH HX/SUBSTANCE ABUSE HX */}
         <SubstanceCheckboxes />
-        <FamilySuicideButtons />
-        {/* TODO childhood? */}
-        <TraumaHistoryButtons />
+        {/* TODO refactor this component name. still don't like it */}
+        <FamilySuicideButtons
+          familySuicideHistoryNotesSetter={setFamilySuicideHistoryNotes}
+        />
+        <TraumaHistoryButtons
+          traumaHistoryNotesSetter={setTraumaHistoryNotes}
+        />
       </fieldset>
       <button>Save Note</button>
     </div>

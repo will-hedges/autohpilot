@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
-export const LegalIssuesButtons = () => {
+export const LegalIssuesButtons = ({ legalIssuesNotesSetter }) => {
   const [legalIssues, setLegalIssues] = useState();
-  const [legalIssuesNotes, setLegalIssuesNotes] = useState("");
 
   const handleLegalIssuesBool = (evt) => {
     let boolState = evt.target.value === "true" ? true : false;
@@ -11,9 +10,9 @@ export const LegalIssuesButtons = () => {
 
   useEffect(() => {
     if (!legalIssues) {
-      setLegalIssuesNotes("");
+      legalIssuesNotesSetter("");
     }
-  }, [legalIssues]);
+  }, [legalIssues, legalIssuesNotesSetter]);
 
   return (
     <div className="form-group">
@@ -42,10 +41,9 @@ export const LegalIssuesButtons = () => {
           <label htmlFor="legalIssuesNotes">Notes:</label>
           <input
             type="text"
-            value={legalIssuesNotes}
             id="legalIssuesNotes"
             onChange={(evt) => {
-              setLegalIssuesNotes(evt.target.value);
+              legalIssuesNotesSetter(evt.target.value);
             }}
           />
         </div>

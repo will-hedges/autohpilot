@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-export const VeteranStatusDropdown = () => {
+export const VeteranStatusDropdown = ({ veteranStatusSetter }) => {
   const [statuses, setStatuses] = useState([]);
-  const [chosenStatus, setChosenStatus] = useState("");
 
   useEffect(() => {
     fetch(`${API}/veteranStatuses`)
@@ -19,8 +18,7 @@ export const VeteranStatusDropdown = () => {
       <label htmlFor="veteran-status">Veteran Status:</label>
       <select
         name="veteran-status"
-        value={chosenStatus}
-        onChange={(evt) => setChosenStatus(parseInt(evt.target.value))}
+        onChange={(evt) => veteranStatusSetter(parseInt(evt.target.value))}
       >
         <option value="" className="form-option">
           Select a veteran status
