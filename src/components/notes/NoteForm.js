@@ -43,7 +43,7 @@ export const NoteForm = () => {
   const [legalIssuesNotes, setLegalIssuesNotes] = useState("");
   const [veteranStatus, setVeteranStatus] = useState();
   const [headInjuryNotes, setHeadInjuryNotes] = useState("");
-  const [checkedSubstances, setCheckedSubstances] = useState([]);
+  const [checkedSubstances, setCheckedSubstances] = useState({});
   const [familySuicideHistoryNotes, setFamilySuicideHistoryNotes] =
     useState("");
   const [traumaHistoryNotes, setTraumaHistoryNotes] = useState("");
