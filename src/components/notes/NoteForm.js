@@ -21,6 +21,8 @@ import { VisitDateAndTimeSelectors } from "../fields/VisitDateAndTimeSelectors";
 import { VisitLocationDropdown } from "../fields/VisitLocationDropdown";
 import { VisitTypeButtons } from "../fields/VisitTypeButtons";
 
+const API = "http://localhost:8088";
+
 export const NoteForm = () => {
   const localUserObj = JSON.parse(localStorage.getItem("autohpilot_user"));
 
@@ -50,7 +52,9 @@ export const NoteForm = () => {
 
   const handleSubmitNoteButtonClick = () => {
     // add some logic here for required fields
-    // if false, show a window alert or similar for req'd fields
+    // or add 'required' attribute to those inputs
+    // show a window alert or similar for req'd fields
+
     const noteObj = {
       userId: localUserObj.id,
       visitDate: visitDate,
@@ -60,7 +64,6 @@ export const NoteForm = () => {
       visitLocationId: visitLocationId,
       visitType: visitType,
       chiefComplaint: chiefComplaint,
-      checkedSymptoms: checkedSymptoms,
       aggravatingFactors: aggravatingFactors,
       alleviatingFactors: alleviatingFactors,
       maritalStatusId: maritalStatusId,
@@ -74,10 +77,60 @@ export const NoteForm = () => {
       headInjury: headInjuryNotes,
       familySuicideHistory: familySuicideHistoryNotes,
       traumaHistory: traumaHistoryNotes,
+      dateCreated: Date.now(),
     };
 
-    // loop over keys and if anything is undefined or '', delete?
-    console.log(noteObj);
+    fetch(`${API}/notes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(noteObj),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const promises = [];
+
+        for (const symptom in checkedSymptoms) {
+          const symptomObj = {
+            noteId: data.id,
+            symptomId: parseInt(symptom),
+            course: checkedSymptoms[symptom],
+          };
+
+          promises.push(
+            fetch(`${API}/noteSymptoms`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(symptomObj),
+            })
+          );
+        }
+
+        for (const substance in checkedSubstances) {
+          const substanceObj = {
+            noteId: data.id,
+            substanceId: parseInt(substance),
+            lastUse: checkedSubstances[substance],
+          };
+
+          promises.push(
+            fetch(`${API}/noteSubstances`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(substanceObj),
+            })
+          );
+        }
+
+        Promise.all(promises).then(console.log("posted!"));
+      });
+
+    // navigate to the "complete note page"
   };
 
   return (
