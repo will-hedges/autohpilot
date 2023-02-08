@@ -32,7 +32,7 @@ export const NoteForm = () => {
   const [visitTime, setVisitTime] = useState(""); // default now?
   const [patientAge, setPatientAge] = useState(0);
   const [patientGender, setPatientGender] = useState("");
-  const [visitType, setVisitType] = useState(0);
+  const [visitTypeId, setVisitTypeId] = useState(0);
   const [visitLocationId, setVisitLocationId] = useState(0);
   const [chiefComplaint, setChiefComplaint] = useState("");
   const [checkedSymptoms, setCheckedSymptoms] = useState({});
@@ -64,7 +64,7 @@ export const NoteForm = () => {
       patientAge: patientAge,
       patientGender: patientGender,
       visitLocationId: visitLocationId,
-      visitType: visitType,
+      visitTypeId: visitTypeId,
       chiefComplaint: chiefComplaint,
       aggravatingFactors: aggravatingFactors,
       alleviatingFactors: alleviatingFactors,
@@ -151,7 +151,7 @@ export const NoteForm = () => {
         />
         <PatientAgeField setPatientAge={setPatientAge} />
         <PatientGenderButtons setPatientGender={setPatientGender} />
-        <VisitTypeButtons setVisitType={setVisitType} />
+        <VisitTypeButtons setVisitTypeId={setVisitTypeId} />
         <VisitLocationDropdown setVisitLocationId={setVisitLocationId} />
 
         {/* SYMPTOMS AND MODIFYING FACTORS */}
