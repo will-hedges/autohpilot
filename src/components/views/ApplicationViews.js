@@ -1,4 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom";
+
+import { CompletedNote } from "../notes/CompletedNote";
 import { NoteForm } from "../notes/NoteForm";
 import { NoteList } from "../notes/NoteList";
 
@@ -16,6 +18,7 @@ export const ApplicationViews = () => {
         }
       />
       <Route path="notes" element={<NoteList />} />
+      <Route path="notes/:noteId" element={<CompletedNote />} />
       <Route path="notes/create" element={<NoteForm />} />
     </Routes>
   );
