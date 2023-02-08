@@ -91,13 +91,13 @@ export const NoteForm = () => {
       body: JSON.stringify(noteObj),
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then((note) => {
         const promises = [];
 
         // add each noteSymptom promise to the promise array
         for (const symptom in checkedSymptoms) {
           const symptomObj = {
-            noteId: data.id,
+            noteId: note.id,
             symptomId: parseInt(symptom),
             course: checkedSymptoms[symptom],
           };
@@ -116,7 +116,7 @@ export const NoteForm = () => {
         // add each noteSubstance promise to the promise array
         for (const substance in checkedSubstances) {
           const substanceObj = {
-            noteId: data.id,
+            noteId: note.id,
             substanceId: parseInt(substance),
             lastUse: checkedSubstances[substance],
           };
@@ -133,8 +133,8 @@ export const NoteForm = () => {
         }
 
         // Promise.all() POSTs all the bridge table data
-        // TODO final .then() will navigate to the 'read' page, console.log placeholder for now
-        Promise.all(promises).then(console.log("posted!"));
+        // final .then() will navigate to the 'read' page, console.log placeholder for now
+        Promise.all(promises).then(navigate(`/notes/${note.id}`));
       });
 
     // navigate to the "complete note page"
