@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-export const VisitTypeButtons = ({ setVisitType }) => {
+export const VisitTypeButtons = ({ setVisitTypeId }) => {
   const [types, setTypes] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export const VisitTypeButtons = ({ setVisitType }) => {
   }, []);
 
   const handleVisitTypeChange = (evt) => {
-    setVisitType(parseInt(evt.target.value));
+    setVisitTypeId(parseInt(evt.target.value));
   };
 
   return (
