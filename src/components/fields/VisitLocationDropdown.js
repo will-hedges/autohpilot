@@ -6,7 +6,7 @@ export const VisitLocationDropdown = ({ setVisitLocationId }) => {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    fetch(`${API}/locations`)
+    fetch(`${API}/visitLocations`)
       .then((res) => res.json())
       .then((locationArray) => {
         setLocations(locationArray);

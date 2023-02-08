@@ -32,7 +32,7 @@ export const NoteForm = () => {
   const [visitTime, setVisitTime] = useState(""); // default now?
   const [patientAge, setPatientAge] = useState(0);
   const [patientGender, setPatientGender] = useState("");
-  const [visitType, setVisitType] = useState("");
+  const [visitType, setVisitType] = useState(0);
   const [visitLocationId, setVisitLocationId] = useState(0);
   const [chiefComplaint, setChiefComplaint] = useState("");
   const [checkedSymptoms, setCheckedSymptoms] = useState({});
@@ -43,7 +43,7 @@ export const NoteForm = () => {
   const [occupation, setOccupation] = useState("");
   const [religious, setReligious] = useState(null);
   const [financialIssuesNotes, setFinancialIssuesNotes] = useState("");
-  const [housingStatusId, setHousingStatusId] = useState();
+  const [housingStatusId, setHousingStatusId] = useState(0);
   const [legalIssuesNotes, setLegalIssuesNotes] = useState("");
   const [veteranStatusId, setVeteranStatusId] = useState(0);
   const [headInjuryNotes, setHeadInjuryNotes] = useState("");
