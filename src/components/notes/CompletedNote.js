@@ -8,7 +8,8 @@ export const CompletedNote = () => {
   const [noteSymptoms, setNoteSymptoms] = useState([]);
   const [noteSubstances, setSubstances] = useState([]);
 
-  const { noteId } = useParams();
+  let { noteId } = useParams();
+  noteId = parseInt(noteId);
 
   useEffect(() => {
     // fetch the 'main' note
@@ -20,13 +21,13 @@ export const CompletedNote = () => {
         setNote(data);
       });
     // fetch the noteSymptoms
-    fetch(`${API}/noteSymptoms?_noteId=${noteId}&_expand=symptom`)
+    fetch(`${API}/noteSymptoms?noteId=${noteId}&_expand=symptom`)
       .then((res) => res.json())
       .then((data) => {
         setNoteSymptoms(data);
       });
     // fetch the noteSubstances
-    fetch(`${API}/noteSubstances?_noteId=${noteId}&_expand=substance`)
+    fetch(`${API}/noteSubstances?noteId=${noteId}&_expand=substance`)
       .then((res) => res.json())
       .then((data) => {
         setSubstances(data);
@@ -43,7 +44,7 @@ export const CompletedNote = () => {
       </section>
 
       <section className="complete-note symptoms-and-factors">
-        <div className="complete-note symptom__list">
+        <div className="complete-note symptoms__list__container">
           Endorses the following symptoms:
           {noteSymptoms.map((noteSymptom) => {
             return (
@@ -101,20 +102,24 @@ export const CompletedNote = () => {
           {note.traumaHistory ? `Trauma history: ${note.traumaHistory}` : ""}
         </div>
       </section>
-      <section className="complete-note substances__list">
-        <div>
-          {noteSubstances
-            ? "Endorses use/abuse of the following substances:"
-            : ""}
-          {noteSubstances.map((noteSubstance) => {
-            return (
-              <div className="substance" key={noteSubstance.id}>
-                - {noteSubstance.substance.name} (last use:{" "}
-                {noteSubstance.lastUse})
-              </div>
-            );
-          })}
-        </div>
+      <section className="complete-note substances__list__container">
+        {noteSubstances.length > 0 ? (
+          <>
+            <div>Endorses use/abuse of the following substances:</div>
+            <div>
+              {noteSubstances.map((noteSubstance) => {
+                return (
+                  <div className="substance" key={noteSubstance.id}>
+                    - {noteSubstance.substance.name} (last use:{" "}
+                    {noteSubstance.lastUse})
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          ""
+        )}
       </section>
     </div>
   );
