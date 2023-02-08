@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-export const EducationLevelDropdown = () => {
+export const EducationLevelDropdown = ({ setEducationLevelId }) => {
   const [levels, setLevels] = useState([]);
-  const [educationLevel, setEducationLevel] = useState("");
 
   useEffect(() => {
     fetch(`${API}/educationLevels`)
@@ -21,10 +20,9 @@ export const EducationLevelDropdown = () => {
       </label>
       <select
         name="education-level"
-        value={educationLevel}
-        onChange={(evt) => setEducationLevel(parseInt(evt.target.value))}
+        onChange={(evt) => setEducationLevelId(parseInt(evt.target.value))}
       >
-        <option value="" className="form-option">
+        <option value={0} className="form-option">
           Select an education level
         </option>
         {levels.map((level) => {

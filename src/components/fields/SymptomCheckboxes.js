@@ -2,17 +2,18 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-const CourseDropdown = ({ symptomId }) => {
+const CourseDropdown = ({ symptomId, checkedSymptoms, setCheckedSymptoms }) => {
   const courses = ["Fluctuating", "Episodic", "Chronic"];
-  const [chosenCourse, setChosenCourse] = useState("");
+  // const [symptomCourse, setSymptomCourse] = useState("");
 
   return (
     <>
       <select
         name={`symptom-${symptomId}-course`}
-        value={chosenCourse}
         onChange={(evt) => {
-          setChosenCourse(evt.target.value);
+          const copy = { ...checkedSymptoms };
+          copy[symptomId] = evt.target.value;
+          setCheckedSymptoms(copy);
         }}
       >
         <option value="" className="form-option">
@@ -30,20 +31,20 @@ const CourseDropdown = ({ symptomId }) => {
   );
 };
 
-export const SymptomCheckboxes = () => {
+export const SymptomCheckboxes = ({ checkedSymptoms, setCheckedSymptoms }) => {
   const [symptoms, setSymptoms] = useState([]);
-  const [checkedSymptoms, setCheckedSymptoms] = useState([]);
 
   const handleCheckboxChange = (evt) => {
     const symptom = evt.target;
-    const symptomId = parseInt(symptom.value);
-    const copy = [...checkedSymptoms];
+    const symptomId = evt.target.value;
+    const copy = { ...checkedSymptoms };
 
     if (symptom.checked) {
-      copy.push(symptomId);
+      copy[symptomId] = "";
       setCheckedSymptoms(copy);
     } else {
-      setCheckedSymptoms(copy.filter((s) => s !== symptomId));
+      delete copy[symptomId];
+      setCheckedSymptoms(copy);
     }
   };
 
@@ -71,8 +72,12 @@ export const SymptomCheckboxes = () => {
             />
             <label htmlFor={symptom.name}>{symptom.name}</label>
             {/* display a 'course' dropdown if the box is checked */}
-            {checkedSymptoms.includes(parseInt(symptom.id)) ? (
-              <CourseDropdown symptomId={symptom.id} />
+            {checkedSymptoms.hasOwnProperty(symptom.id) ? (
+              <CourseDropdown
+                symptomId={symptom.id}
+                checkedSymptoms={checkedSymptoms}
+                setCheckedSymptoms={setCheckedSymptoms}
+              />
             ) : (
               ""
             )}

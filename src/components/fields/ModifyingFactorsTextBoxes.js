@@ -1,9 +1,7 @@
-import { useState } from "react";
-
-export const ModifyingFactorsTextBoxes = () => {
-  const [aggravatingFactors, setAggravatingFactors] = useState("");
-  const [alleviatingFactors, setAlleviatingFactors] = useState("");
-
+export const ModifyingFactorsTextBoxes = ({
+  setAggravatingFactors,
+  setAlleviatingFactors,
+}) => {
   return (
     // TODO could probably DRY this up
     <>
@@ -12,7 +10,6 @@ export const ModifyingFactorsTextBoxes = () => {
         <textarea
           type="text"
           name="aggravatingFactors"
-          value={aggravatingFactors}
           onChange={(evt) => {
             setAggravatingFactors(evt.target.value);
           }}
@@ -24,7 +21,6 @@ export const ModifyingFactorsTextBoxes = () => {
         <textarea
           type="text"
           name="alleviatingFactors"
-          value={alleviatingFactors}
           onChange={(evt) => {
             setAlleviatingFactors(evt.target.value);
           }}

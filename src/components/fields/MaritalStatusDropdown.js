@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-export const MaritalStatusDropdown = () => {
+export const MaritalStatusDropdown = ({ setMaritalStatusId }) => {
   const [statuses, setStatuses] = useState([]);
-  const [chosenStatus, setChosenStatus] = useState("");
 
   useEffect(() => {
     fetch(`${API}/maritalStatuses`)
@@ -19,10 +18,9 @@ export const MaritalStatusDropdown = () => {
       <label htmlFor="marital-status">Marital Status:</label>
       <select
         name="marital-status"
-        value={chosenStatus}
-        onChange={(evt) => setChosenStatus(parseInt(evt.target.value))}
+        onChange={(evt) => setMaritalStatusId(parseInt(evt.target.value))}
       >
-        <option value="" className="form-option">
+        <option value={0} className="form-option">
           Select a marital status
         </option>
         {statuses.map((status) => {

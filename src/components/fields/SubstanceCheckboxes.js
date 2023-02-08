@@ -2,38 +2,44 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-const LastUseTextBox = ({ substanceId }) => {
-  const [lastUse, setLastUse] = useState("");
-
+const LastUseTextBox = ({
+  substanceId,
+  checkedSubstances,
+  setCheckedSubstances,
+}) => {
   return (
     <div className="form-group notes-field last-use">
       <label htmlFor={`substance-${substanceId}-last-use`}>Last Use:</label>
       <input
         type="text"
-        value={lastUse}
         id={`substance-${substanceId}-last-use`}
         onChange={(evt) => {
-          setLastUse(evt.target.value);
+          const copy = { ...checkedSubstances };
+          copy[substanceId] = evt.target.value;
+          setCheckedSubstances(copy);
         }}
       />
     </div>
   );
 };
 
-export const SubstanceCheckboxes = () => {
+export const SubstanceCheckboxes = ({
+  checkedSubstances,
+  setCheckedSubstances,
+}) => {
   const [substances, setSubstances] = useState([]);
-  const [checkedSubstances, setCheckedSubstances] = useState([]);
 
   const handleCheckboxChange = (evt) => {
     const substance = evt.target;
-    const substanceId = parseInt(substance.value);
-    const copy = [...checkedSubstances];
+    const substanceId = evt.target.value;
+    const copy = { ...checkedSubstances };
 
     if (substance.checked) {
-      copy.push(substanceId);
+      copy[substanceId] = "";
       setCheckedSubstances(copy);
     } else {
-      setCheckedSubstances(copy.filter((s) => s !== substanceId));
+      delete copy[substanceId];
+      setCheckedSubstances(copy);
     }
   };
 
@@ -60,8 +66,12 @@ export const SubstanceCheckboxes = () => {
               onChange={handleCheckboxChange}
             />
             <label htmlFor={substance.name}>{substance.name}</label>
-            {checkedSubstances.includes(parseInt(substance.id)) ? (
-              <LastUseTextBox substanceId={substance.id} />
+            {checkedSubstances.hasOwnProperty(substance.id) ? (
+              <LastUseTextBox
+                substanceId={substance.id}
+                checkedSubstances={checkedSubstances}
+                setCheckedSubstances={setCheckedSubstances}
+              />
             ) : (
               ""
             )}

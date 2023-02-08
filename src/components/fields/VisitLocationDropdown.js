@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-export const VisitLocationDropdown = () => {
+export const VisitLocationDropdown = ({ setVisitLocationId }) => {
   const [locations, setLocations] = useState([]);
-  const [chosenLocation, setChosenLocation] = useState("");
 
   useEffect(() => {
     fetch(`${API}/locations`)
@@ -19,10 +18,9 @@ export const VisitLocationDropdown = () => {
       <label htmlFor="location">Visit Location:</label>
       <select
         name="location"
-        value={chosenLocation}
-        onChange={(evt) => setChosenLocation(parseInt(evt.target.value))}
+        onChange={(evt) => setVisitLocationId(parseInt(evt.target.value))}
       >
-        <option value="" className="form-option">
+        <option value={0} className="form-option">
           Select a location
         </option>
         {locations.map((loc) => {

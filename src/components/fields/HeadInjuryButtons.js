@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
-export const HeadInjuryButtons = () => {
+export const HeadInjuryButtons = ({ setHeadInjuryNotes }) => {
   const [headInjury, setHeadInjury] = useState();
-  const [headInjuryNotes, setHeadInjuryNotes] = useState("");
 
   const handleHeadInjuryBool = (evt) => {
     let boolState = evt.target.value === "true" ? true : false;
@@ -21,7 +20,7 @@ export const HeadInjuryButtons = () => {
       // reset to blank string, in case user selects 'No' then 'Yes'
       setHeadInjuryNotes("");
     }
-  }, [headInjury]);
+  }, [headInjury, setHeadInjuryNotes]);
 
   return (
     <div className="form-group">
@@ -50,7 +49,6 @@ export const HeadInjuryButtons = () => {
           <label htmlFor="headInjuryNotes">Notes:</label>
           <input
             type="text"
-            value={headInjuryNotes}
             id="headInjuryNotes"
             onChange={(evt) => {
               setHeadInjuryNotes(evt.target.value);

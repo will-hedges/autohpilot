@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-export const PatientGenderButtons = () => {
-  const [patientGender, setPatientGender] = useState("");
-
+export const PatientGenderButtons = ({ setPatientGender }) => {
   const handleGenderChange = (evt) => {
     setPatientGender(evt.target.value);
   };
@@ -12,7 +8,7 @@ export const PatientGenderButtons = () => {
       <label htmlFor="patientGender">Patient Gender:</label>
       <input
         type="radio"
-        value="male"
+        value="M"
         id="male"
         onChange={handleGenderChange}
         name="gender"
@@ -21,7 +17,7 @@ export const PatientGenderButtons = () => {
 
       <input
         type="radio"
-        value="female"
+        value="F"
         id="female"
         onChange={handleGenderChange}
         name="gender"

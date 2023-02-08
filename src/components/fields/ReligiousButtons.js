@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-export const ReligiousButtons = () => {
-  const [religious, setReligious] = useState();
-
+export const ReligiousButtons = ({ setReligious }) => {
   const handleReligiousBool = (evt) => {
     let boolState = evt.target.value === "true" ? true : false;
     setReligious(boolState);

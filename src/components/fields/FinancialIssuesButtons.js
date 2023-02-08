@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 
-export const FinancialIssuesButtons = () => {
+export const FinancialIssuesButtons = ({ setFinancialIssuesNotes }) => {
   const [financialIssues, setFinancialIssues] = useState();
-  const [financialIssuesNotes, setFinancialIssuesNotes] = useState("");
 
   const handleFinancialIssuesBool = (evt) => {
     let boolState = evt.target.value === "true" ? true : false;
     setFinancialIssues(boolState);
   };
 
+  // useEffect hook to clear out notes field if 'no' is later selected
   useEffect(() => {
     if (!financialIssues) {
       setFinancialIssuesNotes("");
     }
-  }, [financialIssues]);
+  }, [financialIssues, setFinancialIssuesNotes]);
 
   return (
     <div className="form-group">
@@ -42,7 +42,6 @@ export const FinancialIssuesButtons = () => {
           <label htmlFor="financialIssuesNotes">Notes:</label>
           <input
             type="text"
-            value={financialIssuesNotes}
             id="financialIssuesNotes"
             onChange={(evt) => {
               setFinancialIssuesNotes(evt.target.value);
