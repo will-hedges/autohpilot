@@ -38,6 +38,7 @@ export const CompletedNote = () => {
     <div className="complete-note">
       <section className="complete-note preamble">
         <div>
+          {/* TODO add seen for {visitType} - but showing up undefined for some reason */}
           Patient is a {note.patientAge} y/o {note.patientGender}.
         </div>
         <div>Chief Complaint: "{note.chiefComplaint}"</div>
