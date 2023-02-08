@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { ChiefComplaintTextBox } from "../fields/ChiefComplaintTextBox";
 import { EducationLevelDropdown } from "../fields/EducationLevelDropdown";
-import { FamilySuicideButtons } from "../fields/FamilySuicideButtons";
+import { FamilyHistoryOfSuicideButtons } from "../fields/FamilyHistoryOfSuicideButtons";
 import { FinancialIssuesButtons } from "../fields/FinancialIssuesButtons";
 import { HeadInjuryButtons } from "../fields/HeadInjuryButtons";
 import { HousingStatusDropdown } from "../fields/HousingStatusDropdown";
@@ -48,7 +48,7 @@ export const NoteForm = () => {
   const [veteranStatusId, setVeteranStatusId] = useState(0);
   const [headInjuryNotes, setHeadInjuryNotes] = useState("");
   const [checkedSubstances, setCheckedSubstances] = useState({});
-  const [familySuicideHistoryNotes, setFamilySuicideHistoryNotes] =
+  const [familyHistoryOfSuicideNotes, setFamilyHistoryOfSuicideNotes] =
     useState("");
   const [traumaHistoryNotes, setTraumaHistoryNotes] = useState("");
 
@@ -77,7 +77,7 @@ export const NoteForm = () => {
       legalIssues: legalIssuesNotes,
       veteranStatusId: veteranStatusId,
       headInjury: headInjuryNotes,
-      familySuicideHistory: familySuicideHistoryNotes,
+      familyHistoryOfSuicide: familyHistoryOfSuicideNotes,
       traumaHistory: traumaHistoryNotes,
       dateCreated: Date.now(),
     };
@@ -184,8 +184,8 @@ export const NoteForm = () => {
           setCheckedSubstances={setCheckedSubstances}
         />
         {/* TODO refactor this component name. still don't like it */}
-        <FamilySuicideButtons
-          setFamilySuicideHistoryNotes={setFamilySuicideHistoryNotes}
+        <FamilyHistoryOfSuicideButtons
+          setFamilyHistoryOfSuicideNotes={setFamilyHistoryOfSuicideNotes}
         />
         <TraumaHistoryButtons setTraumaHistoryNotes={setTraumaHistoryNotes} />
       </fieldset>
