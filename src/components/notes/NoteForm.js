@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { ChiefComplaintTextBox } from "../fields/ChiefComplaintTextBox";
 import { EducationLevelDropdown } from "../fields/EducationLevelDropdown";
@@ -24,6 +25,7 @@ import { VisitTypeButtons } from "../fields/VisitTypeButtons";
 const API = "http://localhost:8088";
 
 export const NoteForm = () => {
+  const navigate = useNavigate();
   const localUserObj = JSON.parse(localStorage.getItem("autohpilot_user"));
 
   const [visitDate, setVisitDate] = useState(""); // default today?
@@ -80,6 +82,7 @@ export const NoteForm = () => {
       dateCreated: Date.now(),
     };
 
+    // POST main note body to get the noteId for symptoms, substances
     fetch(`${API}/notes`, {
       method: "POST",
       headers: {
@@ -91,6 +94,7 @@ export const NoteForm = () => {
       .then((data) => {
         const promises = [];
 
+        // add each noteSymptom promise to the promise array
         for (const symptom in checkedSymptoms) {
           const symptomObj = {
             noteId: data.id,
@@ -109,6 +113,7 @@ export const NoteForm = () => {
           );
         }
 
+        // add each noteSubstance promise to the promise array
         for (const substance in checkedSubstances) {
           const substanceObj = {
             noteId: data.id,
@@ -127,6 +132,8 @@ export const NoteForm = () => {
           );
         }
 
+        // Promise.all() POSTs all the bridge table data
+        // TODO final .then() will navigate to the 'read' page, console.log placeholder for now
         Promise.all(promises).then(console.log("posted!"));
       });
 
