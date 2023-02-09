@@ -8,7 +8,7 @@ export const NoteList = () => {
   const { date } = useParams();
 
   useEffect(() => {
-    fetch(`${API}/notes?visitDate=${date}&_expand=visitType&_sort=visitTime`)
+    fetch(`${API}/notes?visitDate=${date}&_expand=visitType`)
       .then((res) => res.json())
       .then((notesArray) => {
         setNotes(notesArray);
@@ -25,7 +25,8 @@ export const NoteList = () => {
               to={`/dates/${date}/${note.id}`}
             >
               {/* TODO FIXME why is note.visitType.type undefined ? */}
-              {note.patientAge} {note.patientGender} @ {note.visitTime}
+              {note.patientAge} {note.patientGender} @ {note.visitTime} (
+              {note.visitType.type})
             </Link>
           </li>
         );
