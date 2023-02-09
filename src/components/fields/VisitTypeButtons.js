@@ -3,13 +3,13 @@ import { Fragment, useEffect, useState } from "react";
 const API = "http://localhost:8088";
 
 export const VisitTypeButtons = ({ setVisitTypeId }) => {
-  const [types, setTypes] = useState([]);
+  const [visitTypes, setVisitTypes] = useState([]);
 
   useEffect(() => {
     fetch(`${API}/visitTypes`)
       .then((res) => res.json())
       .then((typesArray) => {
-        setTypes(typesArray);
+        setVisitTypes(typesArray);
       });
   }, []);
 
@@ -20,17 +20,17 @@ export const VisitTypeButtons = ({ setVisitTypeId }) => {
   return (
     <div className="form-group">
       <form>
-        <label htmlFor="visitType">Visit type:</label>
-        {types.map((type) => {
+        <label htmlFor="visit-type">Visit type:</label>
+        {visitTypes.map((visitType) => {
           return (
-            <Fragment key={type.id}>
+            <Fragment key={visitType.id}>
               <input
                 type="radio"
-                value={type.id}
+                value={visitType.id}
                 onChange={handleVisitTypeChange}
-                name="visitType"
+                name="visit-type"
               />
-              <label htmlFor={type.visitType}>{type.visitType}</label>
+              <label htmlFor={visitType.type}>{visitType.type}</label>
             </Fragment>
           );
         })}

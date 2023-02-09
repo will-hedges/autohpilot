@@ -7,12 +7,12 @@ export const NavBar = () => {
   return (
     <ul className="navbar">
       <li className="navbar__item active">
-        <Link className="navbar__link" to="/notes">
+        <Link className="navbar__link" to="/dates">
           My Notes
         </Link>
       </li>
       <li className="navbar__item active">
-        <Link className="navbar__link" to="/notes/create">
+        <Link className="navbar__link" to="/create_note">
           New Note
         </Link>
       </li>
