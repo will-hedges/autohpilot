@@ -24,8 +24,8 @@ export const NoteList = () => {
               className="note__list__item__link"
               to={`/dates/${date}/${note.id}`}
             >
-              {note.patientAge} {note.patientGender} {note.visitType.type} @{" "}
-              {note.visitTime}
+              {/* TODO FIXME why is note.visitType.type undefined ? */}
+              {note.patientAge} {note.patientGender} @ {note.visitTime}
             </Link>
           </li>
         );
