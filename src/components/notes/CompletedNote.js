@@ -8,7 +8,7 @@ export const CompletedNote = () => {
   const [noteSymptoms, setNoteSymptoms] = useState([]);
   const [noteSubstances, setSubstances] = useState([]);
 
-  let { noteId } = useParams();
+  let { date, noteId } = useParams();
   noteId = parseInt(noteId);
 
   useEffect(() => {
@@ -39,7 +39,8 @@ export const CompletedNote = () => {
       <section className="complete-note preamble">
         <div>
           {/* TODO add seen for {visitType} - but showing up undefined for some reason */}
-          Patient is a {note.patientAge} y/o {note.patientGender}.
+          Patient is a {note.patientAge} y/o {note.patientGender} seen for{" "}
+          {note.visitType?.type}.
         </div>
         <div>Chief Complaint: "{note.chiefComplaint}"</div>
       </section>
