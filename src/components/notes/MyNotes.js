@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { DateListDropdown } from "./DateListDropdown";
 import { AppointmentButtons } from "./AppointmentButtons";
-import { CompletedNote } from "./CompletedNoteOG";
+import { CompletedNote } from "./CompletedNote";
 
 const API = "http://localhost:8088";
 
