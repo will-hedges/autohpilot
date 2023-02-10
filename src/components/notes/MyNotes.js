@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { DateListDropdown } from "./DateListDropdown";
 import { AppointmentButtons } from "./AppointmentButtons";
 import { CompletedNote } from "./CompletedNote";
+import { DeleteNoteButton } from "./DeleteNoteButton";
 
 const API = "http://localhost:8088";
 
@@ -32,13 +33,24 @@ export const MyNotes = () => {
 
   return (
     <>
-      <DateListDropdown setChosenDate={setChosenDate} />
+      <DateListDropdown
+        setChosenDate={setChosenDate}
+        notes={notes}
+        setNotes={setNotes}
+      />
       <AppointmentButtons
         filteredNotes={filteredNotes}
         setChosenNote={setChosenNote}
       />
       {chosenNote.hasOwnProperty("id") ? (
-        <CompletedNote chosenNote={chosenNote} />
+        <>
+          <CompletedNote chosenNote={chosenNote} />
+          <DeleteNoteButton
+            notes={notes}
+            setNotes={setNotes}
+            chosenNote={chosenNote}
+          />
+        </>
       ) : (
         ""
       )}

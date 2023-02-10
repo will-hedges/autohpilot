@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 
 const API = "http://localhost:8088";
 
-export const DateListDropdown = ({ setChosenDate }) => {
-  const [notes, setNotes] = useState([]);
+export const DateListDropdown = ({ setChosenDate, notes, setNotes }) => {
   const [dates, setDates] = useState([]);
 
   // fetch all of the notes, and make a set of the dates on initial render
