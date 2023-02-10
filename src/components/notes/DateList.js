@@ -30,6 +30,7 @@ export const DateList = () => {
   // display each item in the set in a list
   return (
     <div className="date__list__container">
+      <h2>Dates with notes/appointments</h2>
       <ul className="date__list">
         {dateArray.map((date) => {
           return (

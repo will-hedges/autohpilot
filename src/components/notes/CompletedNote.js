@@ -8,9 +8,10 @@ export const CompletedNote = () => {
   const [noteSymptoms, setNoteSymptoms] = useState([]);
   const [noteSubstances, setSubstances] = useState([]);
 
-  let { date, noteId } = useParams();
+  let { noteId } = useParams();
   noteId = parseInt(noteId);
 
+  // TODO this might should be in a Promise.all() ?
   useEffect(() => {
     // fetch the 'main' note
     fetch(
