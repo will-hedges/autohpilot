@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+
 import { DeleteNoteButton } from "./DeleteNoteButton";
 
 const API = "http://localhost:8088";
 
 export const NoteList = () => {
   const [notes, setNotes] = useState([]);
-
   const { date } = useParams();
 
   useEffect(() => {
@@ -16,6 +16,8 @@ export const NoteList = () => {
         setNotes(notesArray);
       });
   }, [date]);
+
+  // TODO if there are no notes, go back to the dates page
 
   return (
     <div className="note__list__container">
@@ -31,7 +33,11 @@ export const NoteList = () => {
                 {note.patientAge} {note.patientGender} @ {note.visitTime} (
                 {note.visitType.type})
               </Link>
-              <DeleteNoteButton noteId={note.id} />
+              <DeleteNoteButton
+                noteId={note.id}
+                notes={notes}
+                setNotes={setNotes}
+              />
             </li>
           );
         })}
