@@ -1,30 +1,36 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const API = "http://localhost:8088";
 
 export const CompletedNote = ({ chosenNote }) => {
   const [noteSymptoms, setNoteSymptoms] = useState([]);
-  const [noteSubstances, setNoteSubstances] = useState([]);
+  const [noteSubstances, setSubstances] = useState([]);
 
+  let { noteId } = useParams();
+  noteId = parseInt(noteId);
+
+  // TODO this might should be in a Promise.all() ?
   useEffect(() => {
     // fetch the noteSymptoms
-    fetch(`${API}/noteSymptoms?noteId=${chosenNote.id}&_expand=symptom`)
+    fetch(`${API}/noteSymptoms?noteId=${noteId}&_expand=symptom`)
       .then((res) => res.json())
       .then((data) => {
         setNoteSymptoms(data);
       });
     // fetch the noteSubstances
-    fetch(`${API}/noteSubstances?noteId=${chosenNote.id}&_expand=substance`)
+    fetch(`${API}/noteSubstances?noteId=${noteId}&_expand=substance`)
       .then((res) => res.json())
       .then((data) => {
-        setNoteSubstances(data);
+        setSubstances(data);
       });
-  }, [chosenNote.id]);
+  }, [noteId]);
 
   return (
     <div className="complete-note">
       <section className="complete-note preamble">
         <div>
+          {/* TODO add seen for {visitType} - but showing up undefined for some reason */}
           Patient is a {chosenNote.patientAge} y/o {chosenNote.patientGender}{" "}
           seen for {chosenNote.visitType?.type}.
         </div>
