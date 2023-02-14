@@ -83,7 +83,7 @@ export const NoteForm = () => {
     };
 
     // POST main note body to get the noteId for symptoms, substances
-    fetch(`${API}/notes`, {
+    fetch(`${API}/notes?userId=${localUserObj.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
