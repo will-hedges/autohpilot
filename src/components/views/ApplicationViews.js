@@ -1,9 +1,8 @@
 import { Outlet, Route, Routes } from "react-router-dom";
 
-import { CompletedNote } from "../notes/CompletedNote";
-import { DateList } from "../notes/DateList";
+import { MyNotes } from "../notes/MyNotes";
+import { NewNote } from "../notes/NewNote";
 import { NoteForm } from "../notes/NoteForm";
-import { NoteList } from "../notes/NoteList";
 
 export const ApplicationViews = () => {
   return (
@@ -18,10 +17,9 @@ export const ApplicationViews = () => {
           </>
         }
       />
-      <Route path="dates" element={<DateList />} />
-      <Route path="dates/:date" element={<NoteList />} />
-      <Route path="dates/:date/:noteId" element={<CompletedNote />} />
+      <Route path="my_notes" element={<MyNotes />} />
       <Route path="create_note" element={<NoteForm />} />
+      <Route path="create_note/:noteId" element={<NewNote />} />
     </Routes>
   );
 };

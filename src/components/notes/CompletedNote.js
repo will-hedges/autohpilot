@@ -1,48 +1,34 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 
 const API = "http://localhost:8088";
 
-export const CompletedNote = () => {
-  const [note, setNote] = useState({});
+export const CompletedNote = ({ chosenNote }) => {
   const [noteSymptoms, setNoteSymptoms] = useState([]);
-  const [noteSubstances, setSubstances] = useState([]);
-
-  let { date, noteId } = useParams();
-  noteId = parseInt(noteId);
+  const [noteSubstances, setNoteSubstances] = useState([]);
 
   useEffect(() => {
-    // fetch the 'main' note
-    fetch(
-      `${API}/notes/${noteId}?_expand=visitType&_expand=visitLocation&_expand=maritalStatus&_expand=educationLevel&_expand=housingStatus&_expand=veteranStatus`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setNote(data);
-      });
     // fetch the noteSymptoms
-    fetch(`${API}/noteSymptoms?noteId=${noteId}&_expand=symptom`)
+    fetch(`${API}/noteSymptoms?noteId=${chosenNote.id}&_expand=symptom`)
       .then((res) => res.json())
       .then((data) => {
         setNoteSymptoms(data);
       });
     // fetch the noteSubstances
-    fetch(`${API}/noteSubstances?noteId=${noteId}&_expand=substance`)
+    fetch(`${API}/noteSubstances?noteId=${chosenNote.id}&_expand=substance`)
       .then((res) => res.json())
       .then((data) => {
-        setSubstances(data);
+        setNoteSubstances(data);
       });
-  }, [noteId]);
+  }, [chosenNote.id]);
 
   return (
     <div className="complete-note">
       <section className="complete-note preamble">
         <div>
-          {/* TODO add seen for {visitType} - but showing up undefined for some reason */}
-          Patient is a {note.patientAge} y/o {note.patientGender} seen for{" "}
-          {note.visitType?.type}.
+          Patient is a {chosenNote.patientAge} y/o {chosenNote.patientGender}{" "}
+          seen for {chosenNote.visitType?.type}.
         </div>
-        <div>Chief Complaint: "{note.chiefComplaint}"</div>
+        <div>Chief Complaint: "{chosenNote.chiefComplaint}"</div>
       </section>
 
       <section className="complete-note symptoms-and-factors">
@@ -58,13 +44,13 @@ export const CompletedNote = () => {
         </div>
         <div className="complete-note modifying-factors">
           <div>
-            {note.aggravatingFactors
-              ? `Aggravating Factors: ${note.aggravatingFactors}`
+            {chosenNote.aggravatingFactors
+              ? `Aggravating Factors: ${chosenNote.aggravatingFactors}`
               : ""}
           </div>
           <div>
-            {note.alleviatingFactors
-              ? `Alleviating Factors: ${note.alleviatingFactors}`
+            {chosenNote.alleviatingFactors
+              ? `Alleviating Factors: ${chosenNote.alleviatingFactors}`
               : ""}
           </div>
         </div>
@@ -72,36 +58,48 @@ export const CompletedNote = () => {
 
       <section className="complete-note psychosocial-supports">
         <div>
-          {note.maritalStatus
-            ? `Marital Status: ${note.maritalStatus.status}`
+          {chosenNote.maritalStatus
+            ? `Marital Status: ${chosenNote.maritalStatus.status}`
             : ""}
         </div>
         <div>
-          {note.educationLevel
-            ? `Highest education level completed: ${note.educationLevel.levelCompleted}`
-            : ""}
-        </div>
-        <div>{note.occupation ? `Occupation: ${note.occupation}` : ""}</div>
-        <div>{note.religious ? `Endorses religion` : ""}</div>
-        <div>
-          {note.financialIssues
-            ? `Financial issues: ${note.financialIssues}`
+          {chosenNote.educationLevel
+            ? `Highest education level completed: ${chosenNote.educationLevel.levelCompleted}`
             : ""}
         </div>
         <div>
-          {note.housingStaus ? `Housing status: ${note.housingStaus}` : ""}
+          {chosenNote.occupation ? `Occupation: ${chosenNote.occupation}` : ""}
         </div>
-        <div>{note.legalIssues ? `Legal issues: ${note.legalIssues}` : ""}</div>
+        <div>{chosenNote.religious ? `Endorses religion` : ""}</div>
         <div>
-          {note.veteranStatus
-            ? `Veteran status: ${note.veteranStatus.status}`
+          {chosenNote.financialIssues
+            ? `Financial issues: ${chosenNote.financialIssues}`
             : ""}
         </div>
         <div>
-          {note.headInjury ? `History of head injury: ${note.headInjury}` : ""}
+          {chosenNote.housingStaus
+            ? `Housing status: ${chosenNote.housingStaus}`
+            : ""}
         </div>
         <div>
-          {note.traumaHistory ? `Trauma history: ${note.traumaHistory}` : ""}
+          {chosenNote.legalIssues
+            ? `Legal issues: ${chosenNote.legalIssues}`
+            : ""}
+        </div>
+        <div>
+          {chosenNote.veteranStatus
+            ? `Veteran status: ${chosenNote.veteranStatus.status}`
+            : ""}
+        </div>
+        <div>
+          {chosenNote.headInjury
+            ? `History of head injury: ${chosenNote.headInjury}`
+            : ""}
+        </div>
+        <div>
+          {chosenNote.traumaHistory
+            ? `Trauma history: ${chosenNote.traumaHistory}`
+            : ""}
         </div>
       </section>
       <section className="complete-note substances__list__container">

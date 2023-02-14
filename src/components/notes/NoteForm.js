@@ -134,7 +134,7 @@ export const NoteForm = () => {
 
         // Promise.all() POSTs all the bridge table data
         // final .then() will navigate to the 'read' page, console.log placeholder for now
-        Promise.all(promises).then(navigate(`/dates/${visitDate}/${note.id}`));
+        Promise.all(promises).then(navigate(`/create_note/${note.id}`));
       });
 
     // navigate to the "complete note page"
