@@ -7,6 +7,8 @@ import { DeleteNoteButton } from "./DeleteNoteButton";
 const API = "http://localhost:8088";
 
 export const MyNotes = () => {
+  const localUserObj = JSON.parse(localStorage.getItem("autohpilot_user"));
+
   const [chosenDate, setChosenDate] = useState("");
   const [notes, setNotes] = useState([]);
   const [filteredNotes, setFilteredNotes] = useState([]);
@@ -16,13 +18,13 @@ export const MyNotes = () => {
   useEffect(() => {
     fetch(
       // need to query the userId
-      `${API}/notes?_expand=visitLocation&_expand=visitType&_expand=maritalStatus&_expand=educationLevel&_expand=housingStatus&_expand=veteranStatus`
+      `${API}/notes?userId=${localUserObj.id}&_expand=visitLocation&_expand=visitType&_expand=maritalStatus&_expand=educationLevel&_expand=housingStatus&_expand=veteranStatus`
     )
       .then((res) => res.json())
       .then((notesArray) => {
         setNotes(notesArray);
       });
-  }, []);
+  }, [localUserObj.id]);
 
   useEffect(() => {
     if (chosenDate) {
