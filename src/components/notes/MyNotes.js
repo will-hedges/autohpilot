@@ -15,6 +15,7 @@ export const MyNotes = () => {
   // fetch and expand all notes
   useEffect(() => {
     fetch(
+      // need to query the userId
       `${API}/notes?_expand=visitLocation&_expand=visitType&_expand=maritalStatus&_expand=educationLevel&_expand=housingStatus&_expand=veteranStatus`
     )
       .then((res) => res.json())

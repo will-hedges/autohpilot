@@ -19,6 +19,8 @@ export const DateListDropdown = ({ setChosenDate, notes, setNotes }) => {
     for (const note of notes) {
       dateSet.add(note.visitDate);
     }
+    // Set does not support .map(), so we will make an array from the Set
+    // relevant SO: https://stackoverflow.com/a/42624575/13615436
     const dateArray = [...dateSet];
     setDates(dateArray.sort());
   }, [notes]);
@@ -46,6 +48,3 @@ export const DateListDropdown = ({ setChosenDate, notes, setNotes }) => {
     </div>
   );
 };
-
-// Set does not support .map(), so we will make an array from the Set
-// relevant SO: https://stackoverflow.com/a/42624575/13615436
