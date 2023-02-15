@@ -43,16 +43,15 @@ export const LegalIssuesButtons = ({ setLegalIssuesNotes }) => {
       </label>
 
       {legalIssues ? (
-        <div className="form-group notes-field">
-          <label htmlFor="legalIssuesNotes">Notes:</label>
-          <input
-            type="text"
-            id="legalIssuesNotes"
-            onChange={(evt) => {
-              setLegalIssuesNotes(evt.target.value);
-            }}
-          />
-        </div>
+        <input
+          type="text"
+          id="legal-issues-notes"
+          placeholder="legal issues notes"
+          className="notes-field"
+          onChange={(evt) => {
+            setLegalIssuesNotes(evt.target.value);
+          }}
+        />
       ) : (
         ""
       )}

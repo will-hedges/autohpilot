@@ -51,16 +51,15 @@ export const FamilyHistoryOfSuicideButtons = ({
       </label>
 
       {familyHistoryOfSuicide ? (
-        <div className="form-group notes-field">
-          <label htmlFor="family-history-of-suicide__notes">Notes:</label>
-          <input
-            type="text"
-            id="family-history-of-suicide__notes"
-            onChange={(evt) => {
-              setFamilyHistoryOfSuicideNotes(evt.target.value);
-            }}
-          />
-        </div>
+        <input
+          type="text"
+          className="notes-field"
+          id="family-history-of-suicide__notes"
+          placeholder="family history notes"
+          onChange={(evt) => {
+            setFamilyHistoryOfSuicideNotes(evt.target.value);
+          }}
+        />
       ) : (
         ""
       )}

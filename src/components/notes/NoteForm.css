@@ -35,6 +35,10 @@
     align-items: center;
 }
 
+.notes-field {
+    margin-left: 1rem;
+}
+
 textarea {
     width: 50%;
 }

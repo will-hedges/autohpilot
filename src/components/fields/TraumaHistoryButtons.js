@@ -51,16 +51,15 @@ export const TraumaHistoryButtons = ({ setTraumaHistoryNotes }) => {
       </label>
 
       {trauma ? (
-        <div className="form-group notes-field">
-          <label htmlFor="traumaNotes">Notes:</label>
-          <input
-            type="text"
-            id="traumaNotes"
-            onChange={(evt) => {
-              setTraumaHistoryNotes(evt.target.value);
-            }}
-          />
-        </div>
+        <input
+          type="text"
+          className="notes-field"
+          id="traumaNotes"
+          placeholder="trauma history notes"
+          onChange={(evt) => {
+            setTraumaHistoryNotes(evt.target.value);
+          }}
+        />
       ) : (
         ""
       )}

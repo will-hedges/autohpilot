@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 export const FinancialIssuesButtons = ({ setFinancialIssuesNotes }) => {
   const [financialIssues, setFinancialIssues] = useState();
@@ -16,7 +16,7 @@ export const FinancialIssuesButtons = ({ setFinancialIssuesNotes }) => {
   }, [financialIssues, setFinancialIssuesNotes]);
 
   return (
-    <div className="form-group">
+    <div className="form-group yes-no-notes">
       <label htmlFor="financial-issues" className="field__label">
         Financial issues:
       </label>
@@ -44,16 +44,15 @@ export const FinancialIssuesButtons = ({ setFinancialIssuesNotes }) => {
       </label>
 
       {financialIssues ? (
-        <div className="form-group notes-field">
-          <label htmlFor="financial-issues-notes">Notes:</label>
-          <input
-            type="text"
-            id="financial-issues-notes"
-            onChange={(evt) => {
-              setFinancialIssuesNotes(evt.target.value);
-            }}
-          />
-        </div>
+        <input
+          type="text"
+          className="notes-field"
+          id="financial-issues-notes"
+          placeholder="financial issues notes"
+          onChange={(evt) => {
+            setFinancialIssuesNotes(evt.target.value);
+          }}
+        />
       ) : (
         ""
       )}

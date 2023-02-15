@@ -51,16 +51,15 @@ export const HeadInjuryButtons = ({ setHeadInjuryNotes }) => {
       </label>
 
       {headInjury ? (
-        <div className="form-group notes-field">
-          <label htmlFor="head-injury-notes">Notes:</label>
-          <input
-            type="text"
-            id="head-injury-notes"
-            onChange={(evt) => {
-              setHeadInjuryNotes(evt.target.value);
-            }}
-          />
-        </div>
+        <input
+          type="text"
+          id="head-injury-notes"
+          className="notes-field"
+          placeholder="head injury notes"
+          onChange={(evt) => {
+            setHeadInjuryNotes(evt.target.value);
+          }}
+        />
       ) : (
         ""
       )}
