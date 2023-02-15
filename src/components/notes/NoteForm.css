@@ -46,3 +46,15 @@ textarea {
 #patient-age__field {
     width: 50px;
 }
+
+#main-hpi {
+    background-color: #D3B9F3;
+}
+
+#psychosocial-supports {
+    background-color: #70FFEC;
+}
+
+#other-relevant-history {
+    background-color: #85E0FF;
+}
