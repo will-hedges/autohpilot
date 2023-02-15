@@ -10,6 +10,7 @@ const CourseDropdown = ({ symptomId, checkedSymptoms, setCheckedSymptoms }) => {
     <>
       <select
         name={`symptom-${symptomId}-course`}
+        className="course__dropdown"
         onChange={(evt) => {
           const copy = { ...checkedSymptoms };
           copy[symptomId] = evt.target.value;
@@ -58,19 +59,22 @@ export const SymptomCheckboxes = ({ checkedSymptoms, setCheckedSymptoms }) => {
 
   return (
     <div className="form-group">
-      <label htmlFor="symptom-checkboxes">Symptoms:</label>
+      <label htmlFor="symptom-checkboxes" className="field__label">
+        Symptoms:
+      </label>
       {symptoms.map((symptom) => {
         return (
-          <div key={symptom.id}>
+          <div key={symptom.id} className="multi-checkbox">
             <input
               type="checkbox"
-              className="symptom-checkbox"
               key={symptom.id}
               value={symptom.id}
               name={symptom.name}
               onChange={handleCheckboxChange}
             />
-            <label htmlFor={symptom.name}>{symptom.name}</label>
+            <label htmlFor={symptom.name} className="checkbox__label">
+              {symptom.name}
+            </label>
             {/* display a 'course' dropdown if the box is checked */}
             {checkedSymptoms.hasOwnProperty(symptom.id) ? (
               <CourseDropdown

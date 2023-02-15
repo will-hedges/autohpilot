@@ -5,22 +5,26 @@ export const ModifyingFactorsTextBoxes = ({
   return (
     // TODO could probably DRY this up
     <>
-      <div className="form-group">
-        <label htmlFor="aggravatingFactors">Aggravating Factors:</label>
+      <div className="form-group modifying-factors">
+        <label htmlFor="aggravating-factors" className="field__label">
+          Aggravating Factors:
+        </label>
         <textarea
           type="text"
-          name="aggravatingFactors"
+          name="aggravating-factors"
           onChange={(evt) => {
             setAggravatingFactors(evt.target.value);
           }}
         />
       </div>
 
-      <div className="form-group">
-        <label htmlFor="alleviatingFactors">Alleviating Factors:</label>
+      <div className="form-group modifying-factors">
+        <label htmlFor="alleviating-factors" className="field__label">
+          Alleviating Factors:
+        </label>
         <textarea
           type="text"
-          name="alleviatingFactors"
+          name="alleviating-factors"
           onChange={(evt) => {
             setAlleviatingFactors(evt.target.value);
           }}

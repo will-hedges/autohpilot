@@ -1,10 +1,13 @@
 export const PatientAgeField = ({ setPatientAge }) => {
   return (
     <div className="form-group">
-      <label htmlFor="patientAge">Patient Age:</label>
+      <label htmlFor="patient-age" className="field__label">
+        Patient Age:
+      </label>
       <input
         type="number"
-        name="patientAge"
+        name="patient-age"
+        id="patient-age__field"
         onChange={(evt) => {
           setPatientAge(parseInt(evt.target.value));
         }}

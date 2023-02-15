@@ -1,7 +1,9 @@
 export const OccupationTextBox = ({ setOccupation }) => {
   return (
     <div className="form-group">
-      <label htmlFor="occupation">Occupation:</label>
+      <label htmlFor="occupation" className="field__label">
+        Occupation:
+      </label>
       <input
         type="text"
         name="occupation"

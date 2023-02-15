@@ -53,13 +53,14 @@ export const SubstanceCheckboxes = ({
 
   return (
     <div className="form-group">
-      <label htmlFor="substance-checkboxes">Substance Abuse History:</label>
+      <label htmlFor="substance-checkboxes" className="field__label">
+        Substance Abuse History:
+      </label>
       {substances.map((substance) => {
         return (
-          <div key={substance.id}>
+          <div key={substance.id} className="multi-checkbox">
             <input
               type="checkbox"
-              className="substance-checkbox"
               key={substance.id}
               value={substance.id}
               name={substance.name}

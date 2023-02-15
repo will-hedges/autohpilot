@@ -22,6 +22,8 @@ import { VisitDateAndTimeSelectors } from "../fields/VisitDateAndTimeSelectors";
 import { VisitLocationDropdown } from "../fields/VisitLocationDropdown";
 import { VisitTypeButtons } from "../fields/VisitTypeButtons";
 
+import "./NoteForm.css";
+
 const API = "http://localhost:8088";
 
 export const NoteForm = () => {
@@ -145,49 +147,56 @@ export const NoteForm = () => {
       <h2 className="note__header">New Note</h2>
       <fieldset>
         {/* DEMOGRAPHICS / APPOINTMENT DATE & TIME */}
-        <VisitDateAndTimeSelectors
-          setVisitDate={setVisitDate}
-          setVisitTime={setVisitTime}
-        />
-        <PatientAgeField setPatientAge={setPatientAge} />
-        <PatientGenderButtons setPatientGender={setPatientGender} />
-        <VisitTypeButtons setVisitTypeId={setVisitTypeId} />
-        <VisitLocationDropdown setVisitLocationId={setVisitLocationId} />
+        <section className="note__section">
+          <VisitDateAndTimeSelectors
+            setVisitDate={setVisitDate}
+            setVisitTime={setVisitTime}
+          />
+          <PatientAgeField setPatientAge={setPatientAge} />
+          <PatientGenderButtons setPatientGender={setPatientGender} />
+          <VisitTypeButtons setVisitTypeId={setVisitTypeId} />
+          <VisitLocationDropdown setVisitLocationId={setVisitLocationId} />
+        </section>
 
         {/* SYMPTOMS AND MODIFYING FACTORS */}
-        <ChiefComplaintTextBox setChiefComplaint={setChiefComplaint} />
-        <SymptomCheckboxes
-          checkedSymptoms={checkedSymptoms}
-          setCheckedSymptoms={setCheckedSymptoms}
-        />
-        <ModifyingFactorsTextBoxes
-          setAggravatingFactors={setAggravatingFactors}
-          setAlleviatingFactors={setAlleviatingFactors}
-        />
+        <section className="note__section">
+          <ChiefComplaintTextBox setChiefComplaint={setChiefComplaint} />
+          <SymptomCheckboxes
+            checkedSymptoms={checkedSymptoms}
+            setCheckedSymptoms={setCheckedSymptoms}
+          />
+          <ModifyingFactorsTextBoxes
+            setAggravatingFactors={setAggravatingFactors}
+            setAlleviatingFactors={setAlleviatingFactors}
+          />
+        </section>
 
         {/* PSYCHOSOCIAL SUPPORTS */}
-        <MaritalStatusDropdown setMaritalStatusId={setMaritalStatusId} />
-        <EducationLevelDropdown setEducationLevelId={setEducationLevelId} />
-        <OccupationTextBox setOccupation={setOccupation} />
-        <ReligiousButtons setReligious={setReligious} />
-        <FinancialIssuesButtons
-          setFinancialIssuesNotes={setFinancialIssuesNotes}
-        />
-        <HousingStatusDropdown setHousingStatusId={setHousingStatusId} />
-        <LegalIssuesButtons setLegalIssuesNotes={setLegalIssuesNotes} />
-        <VeteranStatusDropdown setVeteranStatusId={setVeteranStatusId} />
-        <HeadInjuryButtons setHeadInjuryNotes={setHeadInjuryNotes} />
+        <section className="note__section">
+          <MaritalStatusDropdown setMaritalStatusId={setMaritalStatusId} />
+          <EducationLevelDropdown setEducationLevelId={setEducationLevelId} />
+          <OccupationTextBox setOccupation={setOccupation} />
+          <ReligiousButtons setReligious={setReligious} />
+          <FinancialIssuesButtons
+            setFinancialIssuesNotes={setFinancialIssuesNotes}
+          />
+          <HousingStatusDropdown setHousingStatusId={setHousingStatusId} />
+          <LegalIssuesButtons setLegalIssuesNotes={setLegalIssuesNotes} />
+          <VeteranStatusDropdown setVeteranStatusId={setVeteranStatusId} />
+          <HeadInjuryButtons setHeadInjuryNotes={setHeadInjuryNotes} />
+        </section>
 
         {/* FAMILY PSYCH HX/SUBSTANCE ABUSE HX */}
-        <SubstanceCheckboxes
-          checkedSubstances={checkedSubstances}
-          setCheckedSubstances={setCheckedSubstances}
-        />
-        {/* TODO refactor this component name. still don't like it */}
-        <FamilyHistoryOfSuicideButtons
-          setFamilyHistoryOfSuicideNotes={setFamilyHistoryOfSuicideNotes}
-        />
-        <TraumaHistoryButtons setTraumaHistoryNotes={setTraumaHistoryNotes} />
+        <section className="note__section">
+          <SubstanceCheckboxes
+            checkedSubstances={checkedSubstances}
+            setCheckedSubstances={setCheckedSubstances}
+          />
+          <FamilyHistoryOfSuicideButtons
+            setFamilyHistoryOfSuicideNotes={setFamilyHistoryOfSuicideNotes}
+          />
+          <TraumaHistoryButtons setTraumaHistoryNotes={setTraumaHistoryNotes} />
+        </section>
       </fieldset>
       <button onClick={handleSubmitNoteButtonClick}>Submit Note</button>
     </div>

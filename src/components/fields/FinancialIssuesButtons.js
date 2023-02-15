@@ -17,32 +17,38 @@ export const FinancialIssuesButtons = ({ setFinancialIssuesNotes }) => {
 
   return (
     <div className="form-group">
-      <label htmlFor="financialIssues">Financial issues:</label>
+      <label htmlFor="financial-issues" className="field__label">
+        Financial issues:
+      </label>
 
       <input
         type="radio"
         value={true}
-        id="financialIssuesYes"
+        id="financial-issues-yes"
         onChange={handleFinancialIssuesBool}
-        name="financialIssues"
+        name="financial-issues"
       />
-      <label htmlFor="financialIssuesYes">Yes</label>
+      <label htmlFor="financial-issues-yes" className="radio__label">
+        Yes
+      </label>
 
       <input
         type="radio"
         value={false}
-        id="financialIssuesNo"
+        id="financial-issues-no"
         onChange={handleFinancialIssuesBool}
-        name="financialIssues"
+        name="financial-issues"
       />
-      <label htmlFor="financialIssuesNo">No</label>
+      <label htmlFor="financial-issues-no" className="radio__label">
+        No
+      </label>
 
       {financialIssues ? (
         <div className="form-group notes-field">
-          <label htmlFor="financialIssuesNotes">Notes:</label>
+          <label htmlFor="financial-issues-notes">Notes:</label>
           <input
             type="text"
-            id="financialIssuesNotes"
+            id="financial-issues-notes"
             onChange={(evt) => {
               setFinancialIssuesNotes(evt.target.value);
             }}

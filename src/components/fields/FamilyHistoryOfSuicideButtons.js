@@ -24,7 +24,7 @@ export const FamilyHistoryOfSuicideButtons = ({
 
   return (
     <div className="form-group">
-      <label htmlFor="family-history-of-suicide">
+      <label htmlFor="family-history-of-suicide" className="field__label">
         Family history of suicide:
       </label>
 
@@ -35,7 +35,9 @@ export const FamilyHistoryOfSuicideButtons = ({
         onChange={handleFamilySuicideBool}
         name="family-history-of-suicide"
       />
-      <label htmlFor="family-suicide-yes">Yes</label>
+      <label htmlFor="family-suicide-yes" className="radio__label">
+        Yes
+      </label>
 
       <input
         type="radio"
@@ -44,7 +46,9 @@ export const FamilyHistoryOfSuicideButtons = ({
         onChange={handleFamilySuicideBool}
         name="family-history-of-suicide"
       />
-      <label htmlFor="family-suicide-no">No</label>
+      <label htmlFor="family-suicide-no" className="radio__label">
+        No
+      </label>
 
       {familyHistoryOfSuicide ? (
         <div className="form-group notes-field">

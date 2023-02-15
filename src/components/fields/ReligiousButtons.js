@@ -7,25 +7,31 @@ export const ReligiousButtons = ({ setReligious }) => {
   return (
     <div className="form-group">
       <form>
-        <label htmlFor="religious">Religious/spiritual beliefs:</label>
+        <label htmlFor="religious" className="field__label">
+          Religious/spiritual beliefs:
+        </label>
 
         <input
           type="radio"
           value={true}
-          id="religiousYes"
+          id="religious-yes"
           onChange={handleReligiousBool}
           name="religious"
         />
-        <label htmlFor="religiousYes">Yes</label>
+        <label htmlFor="religious-yes" className="radio__label">
+          Yes
+        </label>
 
         <input
           type="radio"
           value={false}
-          id="religiousNo"
+          id="religious-no"
           onChange={handleReligiousBool}
           name="religious"
         />
-        <label htmlFor="religiousNo">No</label>
+        <label htmlFor="religious-no" className="radio__label">
+          No
+        </label>
       </form>
     </div>
   );
