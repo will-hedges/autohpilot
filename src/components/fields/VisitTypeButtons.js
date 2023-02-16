@@ -32,8 +32,8 @@ export const VisitTypeButtons = ({ setVisitTypeId }) => {
                 onChange={handleVisitTypeChange}
                 name="visit-type"
               />
-              <label htmlFor={visitType.visitType} className="radio__label">
-                {visitType.visitType}
+              <label htmlFor={visitType.type} className="radio__label">
+                {visitType.type}
               </label>
             </Fragment>
           );
