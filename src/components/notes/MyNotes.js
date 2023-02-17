@@ -26,7 +26,7 @@ export const MyNotes = () => {
       .then((notesArray) => {
         setNotes(notesArray);
       });
-  }, []);
+  }, [localUserObj.id]);
 
   useEffect(() => {
     if (chosenDate) {

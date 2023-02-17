@@ -184,18 +184,18 @@ export const NoteForm = () => {
           <LegalIssuesButtons setLegalIssuesNotes={setLegalIssuesNotes} />
           <VeteranStatusDropdown setVeteranStatusId={setVeteranStatusId} />
           <HeadInjuryButtons setHeadInjuryNotes={setHeadInjuryNotes} />
-        </section>
-
-        {/* FAMILY PSYCH HX/SUBSTANCE ABUSE HX */}
-        <section className="note__section" id="other-relevant-history">
-          <SubstanceCheckboxes
-            checkedSubstances={checkedSubstances}
-            setCheckedSubstances={setCheckedSubstances}
-          />
           <FamilyHistoryOfSuicideButtons
             setFamilyHistoryOfSuicideNotes={setFamilyHistoryOfSuicideNotes}
           />
           <TraumaHistoryButtons setTraumaHistoryNotes={setTraumaHistoryNotes} />
+        </section>
+
+        {/* FAMILY PSYCH HX/SUBSTANCE ABUSE HX */}
+        <section className="note__section" id="substance-abuse-history">
+          <SubstanceCheckboxes
+            checkedSubstances={checkedSubstances}
+            setCheckedSubstances={setCheckedSubstances}
+          />
         </section>
       </fieldset>
       <button onClick={handleSubmitNoteButtonClick}>Submit Note</button>

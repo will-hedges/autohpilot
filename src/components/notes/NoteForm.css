@@ -3,6 +3,7 @@
     border-radius: 5px;
     margin: 2rem 0;
     padding: 1rem;
+    max-width: 800px;
 }
 
 .form-group {
