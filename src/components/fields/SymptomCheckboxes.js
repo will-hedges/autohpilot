@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const API = "http://localhost:8088";
 
 const CourseDropdown = ({ symptomId, checkedSymptoms, setCheckedSymptoms }) => {
-  const courses = ["Fluctuating", "Episodic", "Chronic"];
+  const courses = ["fluctuating", "episodic", "chronic"];
   // const [symptomCourse, setSymptomCourse] = useState("");
 
   return (
@@ -18,7 +18,7 @@ const CourseDropdown = ({ symptomId, checkedSymptoms, setCheckedSymptoms }) => {
         }}
       >
         <option value="" className="form-option">
-          Select a symptom course
+          ...
         </option>
         {courses.map((course) => {
           return (

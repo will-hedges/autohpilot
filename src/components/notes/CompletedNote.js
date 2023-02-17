@@ -23,7 +23,10 @@ export const CompletedNote = ({ chosenNote }) => {
 
   return (
     <div className="complete-note">
-      <section className="complete-note preamble">
+      <h3 className="complete-note__header">
+        Note for {chosenNote.visitDate} @ {chosenNote.visitTime}
+      </h3>
+      <section className="complete-note__preamble">
         <div>
           Patient is a {chosenNote.patientAge} y/o {chosenNote.patientGender}{" "}
           seen for {chosenNote.visitType?.type}.
@@ -31,18 +34,18 @@ export const CompletedNote = ({ chosenNote }) => {
         <div>Chief Complaint: "{chosenNote.chiefComplaint}"</div>
       </section>
 
-      <section className="complete-note symptoms-and-factors">
-        <div className="complete-note symptoms__list__container">
+      <section className="complete-note__symptoms-and-factors">
+        <div className="complete-note__symptoms__list__container">
           Endorses the following symptoms:
           {noteSymptoms.map((noteSymptom) => {
             return (
               <div className="symptom" key={noteSymptom.id}>
-                - {noteSymptom.symptom.name} ({noteSymptom.course})
+                - {noteSymptom.course} {noteSymptom.symptom.name}
               </div>
             );
           })}
         </div>
-        <div className="complete-note modifying-factors">
+        <div className="complete-note__modifying-factors">
           <div>
             {chosenNote.aggravatingFactors
               ? `Aggravating Factors: ${chosenNote.aggravatingFactors}`
@@ -56,7 +59,7 @@ export const CompletedNote = ({ chosenNote }) => {
         </div>
       </section>
 
-      <section className="complete-note psychosocial-supports">
+      <section className="complete-note__psychosocial-supports">
         <div>
           {chosenNote.maritalStatus
             ? `Marital Status: ${chosenNote.maritalStatus.status}`
@@ -102,7 +105,7 @@ export const CompletedNote = ({ chosenNote }) => {
             : ""}
         </div>
       </section>
-      <section className="complete-note substances__list__container">
+      <section className="complete-note__substances__list__container">
         {noteSubstances.length > 0 ? (
           <>
             <div>Endorses use/abuse of the following substances:</div>

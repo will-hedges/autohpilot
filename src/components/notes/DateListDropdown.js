@@ -29,7 +29,9 @@ export const DateListDropdown = ({ setChosenDate, notes, setNotes }) => {
     // make a dropdown of all the dates
     // onChange should set the chosen date
     <div>
-      <label htmlFor="visit-dates">Visit date: </label>
+      <label htmlFor="visit-dates" className="field__label">
+        Visit date:
+      </label>
       <select
         name="visit-dates"
         onChange={(evt) => setChosenDate(evt.target.value)}

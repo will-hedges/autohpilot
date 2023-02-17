@@ -6,11 +6,12 @@ export const AppointmentButtons = ({ filteredNotes, setChosenNote }) => {
   };
 
   return (
-    <>
+    <div>
       {filteredNotes.map((note) => {
         return (
           <button
             key={note.id}
+            className="appointment__button"
             value={note.visitTime}
             onClick={handleTimeButtonClick}
           >
@@ -18,6 +19,6 @@ export const AppointmentButtons = ({ filteredNotes, setChosenNote }) => {
           </button>
         );
       })}
-    </>
+    </div>
   );
 };

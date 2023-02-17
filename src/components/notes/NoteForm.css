@@ -14,6 +14,7 @@
 }
 
 .field__label {
+    font-weight: 700;
     margin: 0 1rem;
 }
 
@@ -28,6 +29,7 @@
 
 .course__dropdown {
     margin-left: 1rem;
+    width: fit-content;
 }
 
 .modifying-factors {
