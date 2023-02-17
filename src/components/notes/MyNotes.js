@@ -52,6 +52,9 @@ export const MyNotes = () => {
       </div>
       {chosenNote.hasOwnProperty("id") ? (
         <div className="complete-note__container">
+          <h3 className="complete-note__header">
+            Note for {chosenNote.visitDate} @ {chosenNote.visitTime}
+          </h3>
           <CompletedNote chosenNote={chosenNote} />
           <DeleteNoteButton
             notes={notes}

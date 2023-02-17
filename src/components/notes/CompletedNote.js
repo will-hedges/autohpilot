@@ -23,9 +23,6 @@ export const CompletedNote = ({ chosenNote }) => {
 
   return (
     <div className="complete-note">
-      <h3 className="complete-note__header">
-        Note for {chosenNote.visitDate} @ {chosenNote.visitTime}
-      </h3>
       <section className="complete-note__preamble">
         <div>
           Patient is a {chosenNote.patientAge} y/o {chosenNote.patientGender}{" "}
