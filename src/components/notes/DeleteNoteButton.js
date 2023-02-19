@@ -32,7 +32,7 @@ export const DeleteNoteButton = ({ notes, setNotes, chosenNote }) => {
   };
   return (
     <button className="delete-note__button" onClick={handleDeleteButtonClick}>
-      Delete
+      Delete Note
     </button>
   );
 };

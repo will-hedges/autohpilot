@@ -8,6 +8,12 @@ import "./MyNotes.css";
 
 const API = "http://localhost:8088";
 
+const CopyToClipboardButton = () => {
+  return (
+    <button className="copy-to-clipboard__button">Copy to Clipboard</button>
+  );
+};
+
 export const MyNotes = () => {
   const localUserObj = JSON.parse(localStorage.getItem("autohpilot_user"));
 
@@ -51,17 +57,20 @@ export const MyNotes = () => {
         />
       </div>
       {chosenNote.hasOwnProperty("id") ? (
-        <div className="complete-note__container">
-          <h3 className="complete-note__header">
-            Note for {chosenNote.visitDate} @ {chosenNote.visitTime}
-          </h3>
+        <>
+          <div className="complete-note__header">
+            <h3>
+              Note for {chosenNote.visitDate} @ {chosenNote.visitTime}
+            </h3>
+            <CopyToClipboardButton />
+            <DeleteNoteButton
+              notes={notes}
+              setNotes={setNotes}
+              chosenNote={chosenNote}
+            />
+          </div>
           <CompletedNote chosenNote={chosenNote} />
-          <DeleteNoteButton
-            notes={notes}
-            setNotes={setNotes}
-            chosenNote={chosenNote}
-          />
-        </div>
+        </>
       ) : (
         ""
       )}

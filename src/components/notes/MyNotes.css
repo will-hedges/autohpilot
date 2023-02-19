@@ -13,6 +13,19 @@
 
 .complete-note {
     padding: 1rem;
-    border: 1px solid blue;
+    border: 2px solid black;
+    border-radius: 5px;
     max-width: 750px;
+    margin-bottom: 3rem;
+}
+
+.complete-note__header {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.complete-note__header button {
+    height: fit-content;
+    margin-left: 2rem;
 }
