@@ -55,7 +55,7 @@ export const SubstanceCheckboxes = ({
   return (
     <div className="form-group">
       <label htmlFor="substance-checkboxes" className="field__label">
-        Substance Abuse History:
+        Please select if applicable:
       </label>
       {substances.map((substance) => {
         return (

@@ -2,8 +2,12 @@
     border: 2px solid black;
     border-radius: 5px;
     margin: 2rem 0;
-    padding: 1rem;
+    padding: 0 1rem;
     max-width: 800px;
+}
+
+.note__section__header {
+    margin-bottom: 2rem;
 }
 
 .form-group {

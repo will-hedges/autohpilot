@@ -148,6 +148,7 @@ export const NoteForm = () => {
       <fieldset>
         {/* DEMOGRAPHICS / APPOINTMENT DATE & TIME */}
         <section className="note__section" id="visit-info">
+          <h3 className="note__section__header">Visit Information</h3>
           <VisitDateAndTimeSelectors
             setVisitDate={setVisitDate}
             setVisitTime={setVisitTime}
@@ -160,6 +161,9 @@ export const NoteForm = () => {
 
         {/* SYMPTOMS AND MODIFYING FACTORS */}
         <section className="note__section" id="main-hpi">
+          <h3 className="note__section__header">
+            Symptoms and Modifying Factors
+          </h3>
           <ChiefComplaintTextBox setChiefComplaint={setChiefComplaint} />
           <SymptomCheckboxes
             checkedSymptoms={checkedSymptoms}
@@ -173,6 +177,7 @@ export const NoteForm = () => {
 
         {/* PSYCHOSOCIAL SUPPORTS */}
         <section className="note__section" id="psychosocial-supports">
+          <h3 className="note__section__header">Psychosocial Supports</h3>
           <MaritalStatusDropdown setMaritalStatusId={setMaritalStatusId} />
           <EducationLevelDropdown setEducationLevelId={setEducationLevelId} />
           <OccupationTextBox setOccupation={setOccupation} />
@@ -192,6 +197,7 @@ export const NoteForm = () => {
 
         {/* FAMILY PSYCH HX/SUBSTANCE ABUSE HX */}
         <section className="note__section" id="substance-abuse-history">
+          <h3 className="note__section__header">Substance Abuse History</h3>
           <SubstanceCheckboxes
             checkedSubstances={checkedSubstances}
             setCheckedSubstances={setCheckedSubstances}
