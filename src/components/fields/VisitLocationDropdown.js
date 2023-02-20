@@ -15,7 +15,9 @@ export const VisitLocationDropdown = ({ setVisitLocationId }) => {
 
   return (
     <div className="form-group">
-      <label htmlFor="location">Visit Location:</label>
+      <label htmlFor="location" className="field__label">
+        Visit Location:
+      </label>
       <select
         name="location"
         onChange={(evt) => setVisitLocationId(parseInt(evt.target.value))}

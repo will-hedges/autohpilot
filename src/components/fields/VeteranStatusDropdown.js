@@ -15,7 +15,9 @@ export const VeteranStatusDropdown = ({ setVeteranStatusId }) => {
 
   return (
     <div className="form-group">
-      <label htmlFor="veteran-status">Veteran Status:</label>
+      <label htmlFor="veteran-status" className="field__label">
+        Veteran Status:
+      </label>
       <select
         name="veteran-status"
         onChange={(evt) => setVeteranStatusId(parseInt(evt.target.value))}

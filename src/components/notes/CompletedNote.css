@@ -1,0 +1,7 @@
+.complete-note section {
+    margin: 1rem 2rem;
+}
+
+.complete-note__body {
+    border: 1px solid red;
+}

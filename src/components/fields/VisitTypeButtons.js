@@ -20,7 +20,9 @@ export const VisitTypeButtons = ({ setVisitTypeId }) => {
   return (
     <div className="form-group">
       <form>
-        <label htmlFor="visit-type">Visit type:</label>
+        <label htmlFor="visit-type" className="field__label">
+          Visit type:
+        </label>
         {visitTypes.map((visitType) => {
           return (
             <Fragment key={visitType.id}>
@@ -30,7 +32,9 @@ export const VisitTypeButtons = ({ setVisitTypeId }) => {
                 onChange={handleVisitTypeChange}
                 name="visit-type"
               />
-              <label htmlFor={visitType.type}>{visitType.type}</label>
+              <label htmlFor={visitType.type} className="radio__label">
+                {visitType.type}
+              </label>
             </Fragment>
           );
         })}

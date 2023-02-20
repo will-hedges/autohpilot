@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 export const FinancialIssuesButtons = ({ setFinancialIssuesNotes }) => {
   const [financialIssues, setFinancialIssues] = useState();
@@ -16,38 +16,43 @@ export const FinancialIssuesButtons = ({ setFinancialIssuesNotes }) => {
   }, [financialIssues, setFinancialIssuesNotes]);
 
   return (
-    <div className="form-group">
-      <label htmlFor="financialIssues">Financial issues:</label>
+    <div className="form-group yes-no-notes">
+      <label htmlFor="financial-issues" className="field__label">
+        Financial issues:
+      </label>
 
       <input
         type="radio"
         value={true}
-        id="financialIssuesYes"
+        id="financial-issues-yes"
         onChange={handleFinancialIssuesBool}
-        name="financialIssues"
+        name="financial-issues"
       />
-      <label htmlFor="financialIssuesYes">Yes</label>
+      <label htmlFor="financial-issues-yes" className="radio__label">
+        Yes
+      </label>
 
       <input
         type="radio"
         value={false}
-        id="financialIssuesNo"
+        id="financial-issues-no"
         onChange={handleFinancialIssuesBool}
-        name="financialIssues"
+        name="financial-issues"
       />
-      <label htmlFor="financialIssuesNo">No</label>
+      <label htmlFor="financial-issues-no" className="radio__label">
+        No
+      </label>
 
       {financialIssues ? (
-        <div className="form-group notes-field">
-          <label htmlFor="financialIssuesNotes">Notes:</label>
-          <input
-            type="text"
-            id="financialIssuesNotes"
-            onChange={(evt) => {
-              setFinancialIssuesNotes(evt.target.value);
-            }}
-          />
-        </div>
+        <input
+          type="text"
+          className="notes-field"
+          id="financial-issues-notes"
+          placeholder="financial issues notes"
+          onChange={(evt) => {
+            setFinancialIssuesNotes(evt.target.value);
+          }}
+        />
       ) : (
         ""
       )}

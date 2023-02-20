@@ -4,7 +4,15 @@ import { AppointmentButtons } from "./AppointmentButtons";
 import { CompletedNote } from "./CompletedNote";
 import { DeleteNoteButton } from "./DeleteNoteButton";
 
+import "./MyNotes.css";
+
 const API = "http://localhost:8088";
+
+// const CopyToClipboardButton = () => {
+//   return (
+//     <button className="copy-to-clipboard__button">Copy to Clipboard</button>
+//   );
+// };
 
 export const MyNotes = () => {
   const localUserObj = JSON.parse(localStorage.getItem("autohpilot_user"));
@@ -36,23 +44,32 @@ export const MyNotes = () => {
 
   return (
     <>
-      <DateListDropdown
-        setChosenDate={setChosenDate}
-        notes={notes}
-        setNotes={setNotes}
-      />
-      <AppointmentButtons
-        filteredNotes={filteredNotes}
-        setChosenNote={setChosenNote}
-      />
+      <h2 className="my-notes__header">View My Notes</h2>
+      <div className="my-notes__selector__container">
+        <DateListDropdown
+          setChosenDate={setChosenDate}
+          notes={notes}
+          setNotes={setNotes}
+        />
+        <AppointmentButtons
+          filteredNotes={filteredNotes}
+          setChosenNote={setChosenNote}
+        />
+      </div>
       {chosenNote.hasOwnProperty("id") ? (
         <>
+          <div className="complete-note__header">
+            <h3>
+              Note for {chosenNote.visitDate} @ {chosenNote.visitTime}
+            </h3>
+            {/* <CopyToClipboardButton /> */}
+            <DeleteNoteButton
+              notes={notes}
+              setNotes={setNotes}
+              chosenNote={chosenNote}
+            />
+          </div>
           <CompletedNote chosenNote={chosenNote} />
-          <DeleteNoteButton
-            notes={notes}
-            setNotes={setNotes}
-            chosenNote={chosenNote}
-          />
         </>
       ) : (
         ""

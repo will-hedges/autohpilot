@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import "./CompletedNote.css";
+
 const API = "http://localhost:8088";
 
 export const CompletedNote = ({ chosenNote }) => {
@@ -23,86 +25,93 @@ export const CompletedNote = ({ chosenNote }) => {
 
   return (
     <div className="complete-note">
-      <section className="complete-note preamble">
+      <section className="complete-note__preamble">
         <div>
           Patient is a {chosenNote.patientAge} y/o {chosenNote.patientGender}{" "}
-          seen for {chosenNote.visitType?.type}.
+          seen for {chosenNote.visitType.type}.
         </div>
+      </section>
+      <section className="complete-note__chief-complaint">
         <div>Chief Complaint: "{chosenNote.chiefComplaint}"</div>
       </section>
 
-      <section className="complete-note symptoms-and-factors">
-        <div className="complete-note symptoms__list__container">
+      <section className="complete-note__symptoms">
+        <div className="complete-note__symptoms__list__container">
           Endorses the following symptoms:
           {noteSymptoms.map((noteSymptom) => {
             return (
               <div className="symptom" key={noteSymptom.id}>
-                - {noteSymptom.symptom.name} ({noteSymptom.course})
+                - {noteSymptom.course} {noteSymptom.symptom.name}
               </div>
             );
           })}
         </div>
-        <div className="complete-note modifying-factors">
+      </section>
+      <section>
+        <div className="complete-note__modifying-factors">
           <div>
             {chosenNote.aggravatingFactors
-              ? `Aggravating Factors: ${chosenNote.aggravatingFactors}`
+              ? `Reports the following aggravating factors: ${chosenNote.aggravatingFactors}`
               : ""}
           </div>
           <div>
             {chosenNote.alleviatingFactors
-              ? `Alleviating Factors: ${chosenNote.alleviatingFactors}`
+              ? `Reports the following alleviating factors: ${chosenNote.alleviatingFactors}`
               : ""}
           </div>
         </div>
       </section>
 
-      <section className="complete-note psychosocial-supports">
+      <section className="complete-note__psychosocial-supports">
+        <div>Psychosocial supports:</div>
         <div>
           {chosenNote.maritalStatus
-            ? `Marital Status: ${chosenNote.maritalStatus.status}`
+            ? ` - marital status: ${chosenNote.maritalStatus.status}`
             : ""}
         </div>
         <div>
           {chosenNote.educationLevel
-            ? `Highest education level completed: ${chosenNote.educationLevel.levelCompleted}`
+            ? ` - highest education level completed: ${chosenNote.educationLevel.levelCompleted}`
             : ""}
         </div>
         <div>
-          {chosenNote.occupation ? `Occupation: ${chosenNote.occupation}` : ""}
+          {chosenNote.occupation
+            ? ` - occupation: ${chosenNote.occupation}`
+            : ""}
         </div>
-        <div>{chosenNote.religious ? `Endorses religion` : ""}</div>
+        <div>{chosenNote.religious ? ` - endorses religion` : ""}</div>
         <div>
           {chosenNote.financialIssues
-            ? `Financial issues: ${chosenNote.financialIssues}`
+            ? ` - financial issues: ${chosenNote.financialIssues}`
             : ""}
         </div>
         <div>
-          {chosenNote.housingStaus
-            ? `Housing status: ${chosenNote.housingStaus}`
+          {chosenNote.housingStatus
+            ? ` - lives with ${chosenNote.housingStatus.status}`
             : ""}
         </div>
         <div>
           {chosenNote.legalIssues
-            ? `Legal issues: ${chosenNote.legalIssues}`
+            ? ` - legal issues: ${chosenNote.legalIssues}`
             : ""}
         </div>
         <div>
           {chosenNote.veteranStatus
-            ? `Veteran status: ${chosenNote.veteranStatus.status}`
+            ? ` - veteran status: ${chosenNote.veteranStatus.status}`
             : ""}
         </div>
         <div>
           {chosenNote.headInjury
-            ? `History of head injury: ${chosenNote.headInjury}`
+            ? ` - history of head injury: ${chosenNote.headInjury}`
             : ""}
         </div>
         <div>
           {chosenNote.traumaHistory
-            ? `Trauma history: ${chosenNote.traumaHistory}`
+            ? ` - trauma history: ${chosenNote.traumaHistory}`
             : ""}
         </div>
       </section>
-      <section className="complete-note substances__list__container">
+      <section className="complete-note__substances__list__container">
         {noteSubstances.length > 0 ? (
           <>
             <div>Endorses use/abuse of the following substances:</div>

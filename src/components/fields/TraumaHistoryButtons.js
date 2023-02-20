@@ -24,37 +24,42 @@ export const TraumaHistoryButtons = ({ setTraumaHistoryNotes }) => {
 
   return (
     <div className="form-group">
-      <label htmlFor="trauma">History of trauma:</label>
+      <label htmlFor="trauma" className="field__label">
+        History of trauma:
+      </label>
 
       <input
         type="radio"
         value={true}
-        id="traumaYes"
+        id="trauma-yes"
         onChange={handleTraumaBool}
         name="trauma"
       />
-      <label htmlFor="traumaYes">Yes</label>
+      <label htmlFor="trauma-yes" className="radio__label">
+        Yes
+      </label>
 
       <input
         type="radio"
         value={false}
-        id="traumaNo"
+        id="trauma-no"
         onChange={handleTraumaBool}
         name="trauma"
       />
-      <label htmlFor="traumaNo">No</label>
+      <label htmlFor="trauma-no" className="radio__label">
+        No
+      </label>
 
       {trauma ? (
-        <div className="form-group notes-field">
-          <label htmlFor="traumaNotes">Notes:</label>
-          <input
-            type="text"
-            id="traumaNotes"
-            onChange={(evt) => {
-              setTraumaHistoryNotes(evt.target.value);
-            }}
-          />
-        </div>
+        <input
+          type="text"
+          className="notes-field"
+          id="traumaNotes"
+          placeholder="trauma history notes"
+          onChange={(evt) => {
+            setTraumaHistoryNotes(evt.target.value);
+          }}
+        />
       ) : (
         ""
       )}

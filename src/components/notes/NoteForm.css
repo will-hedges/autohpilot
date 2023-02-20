@@ -1,0 +1,67 @@
+.note__section {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    max-width: 800px;
+}
+
+.note__section__header {
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin: 1rem 0;
+}
+
+.form-group input {
+    margin-right: 1rem;
+}
+
+.field__label {
+    font-weight: 700;
+    margin: 0 1rem;
+}
+
+.radio__label {
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
+}
+
+.multi-checkbox {
+    margin-left: 2rem;
+}
+
+.course__dropdown {
+    margin-left: 1rem;
+    width: fit-content;
+}
+
+.modifying-factors {
+    display: flex;
+    align-items: center;
+}
+
+.notes-field {
+    margin-left: 1rem;
+}
+
+textarea {
+    width: 50%;
+}
+
+#patient-age__field {
+    width: 50px;
+}
+
+#main-hpi {
+    background-color: #BDB2FF;
+}
+
+#psychosocial-supports {
+    background-color: #CAFFBF;
+}
+
+#substance-abuse-history {
+    background-color: #9BF6FF;
+}

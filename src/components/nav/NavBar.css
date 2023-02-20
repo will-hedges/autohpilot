@@ -1,7 +1,8 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar__item {
@@ -13,3 +14,6 @@
     margin-left: auto;
 }
 
+.navbar__icon {
+    width: 50px;
+}

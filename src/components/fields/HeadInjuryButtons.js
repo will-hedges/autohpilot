@@ -24,37 +24,42 @@ export const HeadInjuryButtons = ({ setHeadInjuryNotes }) => {
 
   return (
     <div className="form-group">
-      <label htmlFor="headInjury">History of head injury:</label>
+      <label htmlFor="head-injury" className="field__label">
+        History of head injury:
+      </label>
 
       <input
         type="radio"
         value={true}
-        id="headInjuryYes"
+        id="head-injury-yes"
         onChange={handleHeadInjuryBool}
-        name="headInjury"
+        name="head-injury"
       />
-      <label htmlFor="headInjuryYes">Yes</label>
+      <label htmlFor="head-injury-yes" className="radio__label">
+        Yes
+      </label>
 
       <input
         type="radio"
         value={false}
-        id="headInjuryNo"
+        id="head-injury-no"
         onChange={handleHeadInjuryBool}
-        name="headInjury"
+        name="head-injury"
       />
-      <label htmlFor="headInjuryNo">No</label>
+      <label htmlFor="head-injury-no" className="radio__label">
+        No
+      </label>
 
       {headInjury ? (
-        <div className="form-group notes-field">
-          <label htmlFor="headInjuryNotes">Notes:</label>
-          <input
-            type="text"
-            id="headInjuryNotes"
-            onChange={(evt) => {
-              setHeadInjuryNotes(evt.target.value);
-            }}
-          />
-        </div>
+        <input
+          type="text"
+          id="head-injury-notes"
+          className="notes-field"
+          placeholder="head injury notes"
+          onChange={(evt) => {
+            setHeadInjuryNotes(evt.target.value);
+          }}
+        />
       ) : (
         ""
       )}

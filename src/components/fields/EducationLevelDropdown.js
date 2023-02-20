@@ -15,7 +15,7 @@ export const EducationLevelDropdown = ({ setEducationLevelId }) => {
 
   return (
     <div className="form-group">
-      <label htmlFor="education-level">
+      <label htmlFor="education-level" className="field__label">
         Highest education level completed:
       </label>
       <select

@@ -8,10 +8,11 @@ const LastUseTextBox = ({
   setCheckedSubstances,
 }) => {
   return (
-    <div className="form-group notes-field last-use">
-      <label htmlFor={`substance-${substanceId}-last-use`}>Last Use:</label>
+    <>
       <input
         type="text"
+        className="notes-field"
+        placeholder="amount/last use, etc."
         id={`substance-${substanceId}-last-use`}
         onChange={(evt) => {
           const copy = { ...checkedSubstances };
@@ -19,7 +20,7 @@ const LastUseTextBox = ({
           setCheckedSubstances(copy);
         }}
       />
-    </div>
+    </>
   );
 };
 
@@ -53,13 +54,14 @@ export const SubstanceCheckboxes = ({
 
   return (
     <div className="form-group">
-      <label htmlFor="substance-checkboxes">Substance Abuse History:</label>
+      <label htmlFor="substance-checkboxes" className="field__label">
+        Please select if applicable:
+      </label>
       {substances.map((substance) => {
         return (
-          <div key={substance.id}>
+          <div key={substance.id} className="multi-checkbox">
             <input
               type="checkbox"
-              className="substance-checkbox"
               key={substance.id}
               value={substance.id}
               name={substance.name}

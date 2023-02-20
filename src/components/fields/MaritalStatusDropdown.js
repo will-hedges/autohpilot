@@ -15,7 +15,9 @@ export const MaritalStatusDropdown = ({ setMaritalStatusId }) => {
 
   return (
     <div className="form-group">
-      <label htmlFor="marital-status">Marital Status:</label>
+      <label htmlFor="marital-status" className="field__label">
+        Marital Status:
+      </label>
       <select
         name="marital-status"
         onChange={(evt) => setMaritalStatusId(parseInt(evt.target.value))}

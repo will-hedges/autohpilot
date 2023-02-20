@@ -1,0 +1,31 @@
+.my-notes__selector__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 750px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.appointment__button {
+    margin: 1rem 0.5rem 0 1rem;
+}
+
+.complete-note {
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    max-width: 750px;
+    margin-bottom: 3rem;
+}
+
+.complete-note__header {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.complete-note__header button {
+    height: fit-content;
+    margin-left: 2rem;
+}
