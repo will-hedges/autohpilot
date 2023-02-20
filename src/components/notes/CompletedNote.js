@@ -28,7 +28,7 @@ export const CompletedNote = ({ chosenNote }) => {
       <section className="complete-note__preamble">
         <div>
           Patient is a {chosenNote.patientAge} y/o {chosenNote.patientGender}{" "}
-          seen for {chosenNote.visitType?.type}.
+          seen for {chosenNote.visitType.type}.
         </div>
       </section>
       <section className="complete-note__chief-complaint">
