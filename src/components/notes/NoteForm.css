@@ -6,8 +6,12 @@
     max-width: 800px;
 }
 
+.page__header {
+    margin-bottom: -2rem;
+}
+
 .note__section__header {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-group {
