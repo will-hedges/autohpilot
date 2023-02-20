@@ -54,6 +54,17 @@ textarea {
     width: 50%;
 }
 
+#submit__button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+#submit__button img {
+    width: 25px;
+    margin-left: 10px;
+}
+
 #patient-age__field {
     width: 50px;
 }

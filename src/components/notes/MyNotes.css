@@ -27,7 +27,13 @@
     align-items: center;
 }
 
-.complete-note__header button {
-    height: fit-content;
-    margin-left: 2rem;
+
+.my-notes__button {
+    width: 2rem;
+    margin-left: 1rem;
+}
+
+.my-notes__button:hover {
+    border: 2px solid #404040;
+    border-radius: 25px;
 }

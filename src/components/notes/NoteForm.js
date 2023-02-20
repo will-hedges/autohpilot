@@ -204,7 +204,13 @@ export const NoteForm = () => {
           />
         </section>
       </fieldset>
-      <button onClick={handleSubmitNoteButtonClick}>Submit Note</button>
+      <button id="submit__button" onClick={handleSubmitNoteButtonClick}>
+        Submit Note
+        <img
+          src="flying-paper-plane-512.png"
+          alt="clipart of a flying paper plane"
+        />
+      </button>
     </div>
   );
 };
