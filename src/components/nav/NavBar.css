@@ -1,8 +1,12 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    background-color: #dfe0f6;
+    border: 2px solid #404040;
+    border-radius: 5px;
+    padding: 1rem;
 }
 
 .navbar__item {
@@ -10,10 +14,20 @@
     list-style-type: none;
 }
 
-.navbar__logout {
-    margin-left: auto;
-}
-
 .navbar__icon {
     width: 50px;
+}
+
+.navbar__link {
+    text-decoration: none;
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-size: 20px;
+}
+
+.navbar__link:hover {
+    text-decoration: underline;
+}
+
+.navbar__logout {
+    font-size: 20px;
 }

@@ -21,14 +21,14 @@ export const CompletedNote = ({ chosenNote }) => {
       .then((data) => {
         setNoteSubstances(data);
       });
-  }, [chosenNote.id, chosenNote?.visitType.type]);
+  }, [chosenNote.id, chosenNote?.visitType?.type]);
 
   return (
     <div className="complete-note">
       <section className="complete-note__preamble">
         <div>
           Patient is a {chosenNote.patientAge} y/o {chosenNote.patientGender}{" "}
-          seen for {chosenNote?.visitType.type}.{"\n"}
+          seen for {chosenNote?.visitType?.type}.{"\n"}
         </div>
       </section>
       <section className="complete-note__chief-complaint">
