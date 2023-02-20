@@ -31,8 +31,12 @@ export const DeleteNoteButton = ({ notes, setNotes, chosenNote }) => {
     }
   };
   return (
-    <button className="delete-note__button" onClick={handleDeleteButtonClick}>
-      Delete Note
-    </button>
+    <img
+      className="my-notes__button"
+      id="delete-note__button"
+      onClick={handleDeleteButtonClick}
+      src="delete-icon.png"
+      alt="icon of a red circle with a white x"
+    />
   );
 };

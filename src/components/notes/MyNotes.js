@@ -5,23 +5,9 @@ import { CompletedNote } from "./CompletedNote";
 import { DeleteNoteButton } from "./DeleteNoteButton";
 
 import "./MyNotes.css";
+import { CopyToClipboardButton } from "./CopyToClipboardButton";
 
 const API = "http://localhost:8088";
-
-const CopyToClipboardButton = () => {
-  return (
-    <button
-      className="copy-to-clipboard__button"
-      onClick={() => {
-        const noteAsString =
-          document.querySelector(".complete-note").textContent;
-        navigator.clipboard.writeText(noteAsString);
-      }}
-    >
-      Copy to Clipboard
-    </button>
-  );
-};
 
 export const MyNotes = () => {
   const localUserObj = JSON.parse(localStorage.getItem("autohpilot_user"));
