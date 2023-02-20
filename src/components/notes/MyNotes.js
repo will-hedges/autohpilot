@@ -12,9 +12,11 @@ const CopyToClipboardButton = () => {
   return (
     <button
       className="copy-to-clipboard__button"
-      onClick={() =>
-        console.log(document.querySelector(".complete-note").textContent)
-      }
+      onClick={() => {
+        const noteAsString =
+          document.querySelector(".complete-note").textContent;
+        navigator.clipboard.writeText(noteAsString);
+      }}
     >
       Copy to Clipboard
     </button>
