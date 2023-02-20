@@ -144,7 +144,7 @@ export const NoteForm = () => {
 
   return (
     <div className="note__form">
-      <h2 className="note__header">New Note</h2>
+      <h2 className="page__header">New Note</h2>
       <fieldset>
         {/* DEMOGRAPHICS / APPOINTMENT DATE & TIME */}
         <section className="note__section" id="visit-info">
