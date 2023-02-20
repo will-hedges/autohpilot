@@ -8,11 +8,20 @@ import "./MyNotes.css";
 
 const API = "http://localhost:8088";
 
-// const CopyToClipboardButton = () => {
-//   return (
-//     <button className="copy-to-clipboard__button">Copy to Clipboard</button>
-//   );
-// };
+const CopyToClipboardButton = () => {
+  return (
+    <button
+      className="copy-to-clipboard__button"
+      onClick={() => {
+        const noteAsString =
+          document.querySelector(".complete-note").textContent;
+        navigator.clipboard.writeText(noteAsString);
+      }}
+    >
+      Copy to Clipboard
+    </button>
+  );
+};
 
 export const MyNotes = () => {
   const localUserObj = JSON.parse(localStorage.getItem("autohpilot_user"));
@@ -62,7 +71,7 @@ export const MyNotes = () => {
             <h3>
               Note for {chosenNote.visitDate} @ {chosenNote.visitTime}
             </h3>
-            {/* <CopyToClipboardButton /> */}
+            <CopyToClipboardButton />
             <DeleteNoteButton
               notes={notes}
               setNotes={setNotes}
