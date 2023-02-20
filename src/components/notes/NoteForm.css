@@ -54,14 +54,18 @@ textarea {
     width: 50px;
 }
 
+#visit-info {
+    background-color: #f6f5df;
+}
+
 #main-hpi {
-    background-color: #BDB2FF;
+    background-color: #dfe0f6;
 }
 
 #psychosocial-supports {
-    background-color: #CAFFBF;
+    background-color: #e0f6df;
 }
 
 #substance-abuse-history {
-    background-color: #9BF6FF;
+    background-color: #f6eadf;
 }

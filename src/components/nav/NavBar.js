@@ -22,11 +22,6 @@ export const NavBar = () => {
         <HomeNavIcon />
       </li>
       <li className="navbar__item active">
-        <Link className="title--main" to="/">
-          Home
-        </Link>
-      </li>
-      <li className="navbar__item active">
         <Link className="navbar__link" to="/my_notes">
           My Notes
         </Link>
@@ -37,9 +32,9 @@ export const NavBar = () => {
         </Link>
       </li>
       {localStorage.getItem("autohpilot_user") ? (
-        <li className="navbar__item navbar__logout">
-          <Link
-            className="navbar__link"
+        <li className="navbar__item active">
+          <button
+            className="navbar__logout"
             to=""
             onClick={() => {
               localStorage.removeItem("autohpilot_user");
@@ -47,7 +42,7 @@ export const NavBar = () => {
             }}
           >
             Logout
-          </Link>
+          </button>
         </li>
       ) : (
         ""
