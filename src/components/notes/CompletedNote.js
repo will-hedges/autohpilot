@@ -21,7 +21,7 @@ export const CompletedNote = ({ chosenNote }) => {
       .then((data) => {
         setNoteSubstances(data);
       });
-  }, [chosenNote.id]);
+  }, [chosenNote.id, chosenNote.visitType.type]);
 
   return (
     <div className="complete-note">
